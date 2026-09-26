@@ -1,0 +1,34 @@
+# VeriRAG Configuration Placeholders
+
+retriever:
+  embedding_model: "TODO: e.g. sentence-transformers/all-mpnet-base-v2 or law-ai/InLegalBERT"
+  chunk_size: "TODO: e.g. 512"
+  chunk_overlap: "TODO: e.g. 64"
+  top_k: "TODO: e.g. 5"
+  index_type: "TODO: e.g. faiss-flat-ip / faiss-hnsw"
+  distance_metric: "TODO: e.g. cosine / inner_product"
+
+generator:
+  llm_model: "TODO: e.g. claude-3-5-sonnet-20241022 or gpt-4o"
+  temperature: "TODO: e.g. 0.2"
+  max_tokens: "TODO: e.g. 1024"
+  prompt_template: "TODO: path or template string for legal judgment QA"
+
+decomposer:
+  method: "TODO: rule-based / llm-prompted"
+  llm_model: "TODO: e.g. claude-3-5-sonnet or gpt-4o-mini"
+  granularity: "TODO: sentence-level vs. sub-clause atomic proposition"
+  prompt_template: "TODO: path to atomic decomposition prompt"
+
+verifier:
+  model_type: "TODO: nli-cross-encoder / llm-judge"
+  model_name: "TODO: e.g. cross-encoder/nli-deberta-v3-large or claude-3-5-sonnet"
+  threshold_supported: "TODO: e.g. 0.7"
+  threshold_contradicted: "TODO: e.g. 0.7"
+  temperature: "TODO: e.g. 0.0"
+
+aggregator:
+  strategy: "TODO: weighted_average / minimum_support / all_supported"
+  citation_linking: "TODO: strict / fuzzy"
+  uncertainty_handling: "TODO: flag_unsupported /abstain"
+  overall_threshold: "TODO: e.g. 0.8"

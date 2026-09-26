@@ -1,0 +1,36 @@
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Environment files & credentials
+.env
+.env.*
+!.env.example
+
+# Large dataset caches & HF downloads
+.cache/
+*.parquet
+*.arrow
+data/*.csv
+data/*.jsonl
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

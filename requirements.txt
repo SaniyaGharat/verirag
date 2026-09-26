@@ -1,0 +1,16 @@
+# Core Deep Learning & NLP
+torch>=2.2.0
+transformers>=4.44.0
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0
+datasets>=2.20.0
+
+# Machine Learning & Data Processing
+scikit-learn>=1.4.0
+pandas>=2.2.0
+numpy>=1.26.0
+tqdm>=4.66.0
+
+# LLM APIs & Environment
+python-dotenv>=1.0.0
+anthropic>=0.30.0
