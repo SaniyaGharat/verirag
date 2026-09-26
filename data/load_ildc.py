@@ -1,138 +1,82 @@
 """
 ILDC (Indian Legal Documents Corpus) Dataset Loader
 ====================================================
-Exact Hugging Face Dataset Identifiers:
-1. Canonical Benchmark Repository:
-   - Identifier: "Exploration-Lab/IL-TUR"
-   - Configuration / Subset: "CJPE" (Court Judgment Prediction and Explanation)
-   - Status: Gated repository on Hugging Face (requires HF authentication / accepted terms)
-   - Reference: "IL-TUR: Benchmark for Indian Legal Text Understanding and Reasoning" (Paul et al., 2022)
-     and "ILDC for CJPE: Indian Legal Documents Corpus for Court Judgment Prediction and Explanation" (Malik et al., 2021)
+This module handles loading both the primary retrieval corpus and the evaluation sets
+for the VeriRAG pipeline.
 
-2. Open Access Community Mirrors / Subsets:
-   - Identifier: "anuragiiser/ILDC_expert" (Gold-standard expert evaluation subset of ILDC)
-   - Identifier: "jayadityagandham9/ILDC_35k_COMPLETE" (Complete 35k case corpus of ILDC)
+Dataset Roles:
+1. PRIMARY RETRIEVAL CORPUS:
+   - Identifier: "jayadityagandham9/ILDC_35k_COMPLETE"
+   - Role: CORPUS for retriever chunking and indexing (~38.9k Supreme Court judgments).
 
-This script attempts the canonical 'Exploration-Lab/IL-TUR' ('CJPE') first. If access is restricted/gated,
-it gracefully falls back to the open accessible ILDC dataset 'anuragiiser/ILDC_expert'.
+2. EVAL / COMPARISON BENCHMARK SET:
+   - Identifier: "anuragiiser/ILDC_expert"
+   - Role: EVAL/COMPARISON SET ONLY — 54 examples, NOT the retrieval corpus.
+     Used strictly for verifier evaluation against gold-standard human legal explanations.
+
+3. CANONICAL BENCHMARK (Phase 6):
+   - Identifier: "Exploration-Lab/IL-TUR" (task: "CJPE")
+   - Role: Canonical gated benchmark for final Phase 6 evaluation.
 """
 
 import os
 import sys
-
-# Suppress Windows symlink warning from huggingface_hub for clean output
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
-
+from pathlib import Path
 from datasets import load_dataset
 from dotenv import load_dotenv
 
-# Load environment variables (e.g., HF_TOKEN if available)
-load_dotenv()
+# Suppress Windows symlink warning from huggingface_hub
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+
+# Load environment variables (.env in project root or current working dir)
+project_root = Path(__file__).resolve().parent.parent
+load_dotenv(dotenv_path=project_root / ".env")
 
 
-def load_ildc_dataset():
-    # Candidates ordered by priority:
-    # 1. Canonical gated benchmark ("Exploration-Lab/IL-TUR", "CJPE")
-    # 2. Canonical lowercase variant ("Exploration-Lab/IL-TUR", "cjpe")
-    # 3. Direct name ("ildc")
-    # 4. Open-access ILDC expert evaluation corpus ("anuragiiser/ILDC_expert")
-    candidates = [
-        ("Exploration-Lab/IL-TUR", "CJPE", "Canonical benchmark repo (gated)"),
-        ("Exploration-Lab/IL-TUR", "cjpe", "Canonical benchmark repo lowercase config"),
-        ("ildc", None, "Direct name lookup"),
-        ("anuragiiser/ILDC_expert", None, "Open-access ILDC expert evaluation subset"),
-    ]
+def check_hf_authentication():
+    """Verify Hugging Face authentication for gated benchmark datasets."""
+    token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")
+    if not token or len(token.strip()) == 0:
+        print("\n" + "!" * 70)
+        print("NOTICE: Hugging Face Authentication Token Not Detected in .env")
+        print("!" * 70)
+        print("To enable access to the canonical benchmark 'Exploration-Lab/IL-TUR':")
+        print("1. Visit https://huggingface.co/settings/tokens and generate an access token.")
+        print("2. Add HF_TOKEN=<your_token> to a '.env' file in the project root.")
+        print("3. Accept dataset terms at: https://huggingface.co/datasets/Exploration-Lab/IL-TUR")
+        print("Note: This is required for Phase 6 evaluation, not current development.")
+        print("!" * 70 + "\n")
+    else:
+        print("[Auth] Hugging Face token detected in environment.")
 
-    dataset = None
-    chosen_meta = None
 
-    print("-" * 65)
-    print("Searching and loading ILDC (Indian Legal Documents Corpus)...")
-    print("-" * 65)
+def load_retrieval_corpus():
+    """Loads the main ILDC retrieval corpus for indexing."""
+    print("=" * 70)
+    print("LOADING PRIMARY RETRIEVAL CORPUS (jayadityagandham9/ILDC_35k_COMPLETE)")
+    print("=" * 70)
+    corpus = load_dataset("jayadityagandham9/ILDC_35k_COMPLETE")
+    print(f"Total indexed judgments available: {len(corpus['train']):,}")
+    return corpus
 
-    for repo_id, config_name, desc in candidates:
-        try:
-            print(f"Trying identifier: '{repo_id}' (config: {config_name}) [{desc}]...")
-            if config_name:
-                dataset = load_dataset(repo_id, config_name)
-            else:
-                dataset = load_dataset(repo_id)
-            chosen_meta = (repo_id, config_name, desc)
-            print(f"-> SUCCESS: Successfully loaded '{repo_id}' (config: {config_name})\n")
-            break
-        except Exception as err:
-            err_msg = str(err).split("\n")[0]
-            print(f"-> FAILED: {err_msg}\n")
 
-    if dataset is None:
-        print("ERROR: Failed to load ILDC dataset from any candidate identifier.")
-        sys.exit(1)
-
-    repo_id, config_name, desc = chosen_meta
-
-    # 1. Print dataset splits and number of examples per split
-    print("=" * 65)
-    print("ILDC DATASET SPLITS & STATISTICS")
-    print("=" * 65)
-    print(f"Hugging Face Identifier : {repo_id}")
-    if config_name:
-        print(f"Configuration / Subset  : {config_name}")
-    print(f"Description             : {desc}")
-    print(f"Available Splits        : {list(dataset.keys())}")
-    print("-" * 65)
-    for split_name, split_data in dataset.items():
-        print(f"  Split: {split_name:<10} | Number of Examples: {len(split_data):,}")
-    print("=" * 65)
-
-    # 2. Inspect first split (usually 'train' or first available)
-    first_split_name = "train" if "train" in dataset else list(dataset.keys())[0]
-    first_split = dataset[first_split_name]
-    first_example = first_split[0]
-
-    print(f"\nFIRST EXAMPLE DETAILS (Split: '{first_split_name}')")
-    print("=" * 65)
-    print("Fields available in first example:")
-    for key, val in first_example.items():
-        val_type = type(val).__name__
-        val_preview = f"length {len(val)}" if isinstance(val, (str, list, dict)) else str(val)
-        print(f"  - {key:<25} : (type: {val_type:<6}, preview: {val_preview})")
-
-    # 3. Print truncated preview of the primary text/case description field
-    candidate_text_fields = [
-        "Case Description",
-        "text",
-        "document",
-        "case_text",
-        "Official Reasoning",
-        "premise",
-        "input",
-    ]
-    text_field = None
-    for field in candidate_text_fields:
-        if field in first_example and first_example[field]:
-            text_field = field
-            break
-
-    if text_field:
-        full_text = str(first_example[text_field]).strip()
-        preview_len = 500
-        truncated_text = full_text[:preview_len] + ("..." if len(full_text) > preview_len else "")
-        print("\n" + "-" * 65)
-        print(f"PREVIEW OF PRIMARY TEXT FIELD: '{text_field}' (First {preview_len} chars)")
-        print("-" * 65)
-        print(truncated_text)
-        print("-" * 65)
-        print(f"Total character count: {len(full_text):,} characters")
-
-    # Also show decision/label if present
-    for label_field in ["Official Decision", "label", "decision"]:
-        if label_field in first_example:
-            print(f"Outcome Label ('{label_field}'): {first_example[label_field]}")
-
-    print("=" * 65)
-    print("ILDC dataset loaded and inspected successfully.")
-    return dataset
+def load_eval_set():
+    """Loads the 54-case expert evaluation subset."""
+    print("=" * 70)
+    print("LOADING EVAL/COMPARISON SET (anuragiiser/ILDC_expert)")
+    print("=" * 70)
+    print(">>> EVAL/COMPARISON SET ONLY -- 54 examples, NOT the retrieval corpus. <<<")
+    eval_set = load_dataset("anuragiiser/ILDC_expert")
+    print(f"Total expert-annotated evaluation cases: {len(eval_set['train']):,}")
+    return eval_set
 
 
 if __name__ == "__main__":
-    load_ildc_dataset()
+    check_hf_authentication()
+    corpus = load_retrieval_corpus()
+    eval_ds = load_eval_set()
+    print("\n" + "=" * 70)
+    print("SUMMARY OF DATASETS LOADED:")
+    print(f" - Primary Retrieval Corpus : {len(corpus['train']):,} examples")
+    print(f" - Expert Evaluation Set    : {len(eval_ds['train']):,} examples")
+    print("=" * 70)
