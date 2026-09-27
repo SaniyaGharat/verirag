@@ -33,3 +33,11 @@ verirag/
    ```powershell
    python data/load_ildc.py
    ```
+
+## Corpus Cleaning & Preprocessing (ILDC)
+
+The published ILDC corpus contains systematic regex-expansion defects (`Co.` -> `company`, `No.` -> `number`). VeriRAG provides an automated dictionary-driven reconstruction pipeline:
+
+- `data/clean_corpus.py`: Reconstructs corrupted tokens using `wordfreq` frequency rankings and NLTK lexical fallback with two-word space-splitting and low-confidence guardrails.
+- `data/apply_cleaning_v4.py`: Multi-threaded full-corpus cleaner generating `ildc_cleaned_v4.parquet` across all 38,904 judgments with 99.35% legitimate numerical phrase preservation.
+- `data/audit_cleaning.py`: Audit suite verifying phrase preservation and residual scan counts.

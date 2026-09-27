@@ -60,6 +60,25 @@ def load_retrieval_corpus():
     return corpus
 
 
+def load_cleaned_corpus(version: str = "v4"):
+    """Loads the preprocessed and cleaned ILDC corpus from parquet."""
+    import pandas as pd
+    processed_dir = project_root / "data" / "processed"
+    parquet_path = processed_dir / f"ildc_cleaned_{version}.parquet"
+    if not parquet_path.exists():
+        parquet_path = processed_dir / "ildc_cleaned_v4.parquet"
+    if not parquet_path.exists():
+        parquet_path = processed_dir / "ildc_cleaned_v3.parquet"
+    if not parquet_path.exists():
+        raise FileNotFoundError(f"Cleaned corpus not found in {processed_dir}. Run apply_cleaning_v4.py first.")
+    print("=" * 70)
+    print(f"LOADING CLEANED RETRIEVAL CORPUS ({parquet_path.name})")
+    print("=" * 70)
+    df = pd.read_parquet(parquet_path)
+    print(f"Total cleaned judgments available: {len(df):,}")
+    return df
+
+
 def load_eval_set():
     """Loads the 54-case expert evaluation subset."""
     print("=" * 70)
