@@ -1,0 +1,1352 @@
+[
+  {
+    "index": 1,
+    "doc_id": "2008_1370",
+    "before": "that, when the words of a law extend",
+    "target": "number",
+    "after": "to an inconvenience rarely happening, but due to",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 2,
+    "doc_id": "1961_27",
+    "before": "said, only the initiation of a suit and",
+    "target": "number",
+    "after": "the continuance of a suit already filed before",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 3,
+    "doc_id": "1962_311",
+    "before": "done under the cloak of duty, even though",
+    "target": "number",
+    "after": "by virtue of the duty. When he the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 4,
+    "doc_id": "1974_191",
+    "before": "the support of Tribeni Sahai while Balak Ram,",
+    "target": "number",
+    "after": "under death sentence, who was a Congress 0",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 5,
+    "doc_id": "2017_303",
+    "before": "the Competent Authority suffers from the vice of",
+    "target": "number",
+    "after": "-application of mind and number-consideration of relevant materials",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 6,
+    "doc_id": "2004_782",
+    "before": "was levied on minerals and mineral rights and",
+    "target": "number",
+    "after": "on land and hence the conclusion reached therein",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 7,
+    "doc_id": "1987_430",
+    "before": "by the high court. this however does 1101",
+    "target": "number",
+    "after": "decide the matter because the high court declined",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 8,
+    "doc_id": "2017_61",
+    "before": "CLOSE SHOT The shot in question was obviously",
+    "target": "number",
+    "after": "a close shot. There was numberblackening, tattooing or",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 9,
+    "doc_id": "2008_1096",
+    "before": "is then clearly number traceable to unilateral provocation,",
+    "target": "number",
+    "after": "in such cases could the whole blame be",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 10,
+    "doc_id": "1972_218",
+    "before": "between stone obtained by crushing or breaking of",
+    "target": "number",
+    "after": "-stratified rock and 1 1960 3 S.C.R. 476",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 11,
+    "doc_id": "1997_10",
+    "before": "the Government was right in taking a decision",
+    "target": "number",
+    "after": "to operate Rule 4 of the General Rules",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 12,
+    "doc_id": "1961_231",
+    "before": "p-50 is the extract from the inam register",
+    "target": "number",
+    "after": "48 relating to village tallavalasa in the taluk",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 13,
+    "doc_id": "1984_43",
+    "before": "against the rate of interest charged to him",
+    "target": "number",
+    "after": "is it open to him to dictate to",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 14,
+    "doc_id": "2011_544",
+    "before": "the answer-books, the examining body expects the examiner",
+    "target": "number",
+    "after": "to disclose the information regarding evaluation to anyone",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 15,
+    "doc_id": "1947_344",
+    "before": "then such offences are held to be cognizable,",
+    "target": "number",
+    "after": "-bailable and triable by the Court of Magistrate",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 16,
+    "doc_id": "1964_292",
+    "before": "made under sub-section 2 of section 25-A but",
+    "target": "number",
+    "after": "till then, the proviso to that sub-section will",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 17,
+    "doc_id": "2011_274",
+    "before": "impleaded as a party to the arbitration proceedings,",
+    "target": "number",
+    "after": "get his claim dealt with in the arbitration",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 18,
+    "doc_id": "2000_1180",
+    "before": "whether When there are common elements, should one",
+    "target": "number",
+    "after": "pay more regard to the parts which are",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 19,
+    "doc_id": "1965_358",
+    "before": "could not claim any exemption thereunder. Let us",
+    "target": "number",
+    "after": "scrutinize the validity of the rival contentions. Section",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 20,
+    "doc_id": "2017_159",
+    "before": "in the shop and that neither defendant No.1/2",
+    "target": "number",
+    "after": "defendant No.1/3 were present in the shop to",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 21,
+    "doc_id": "2004_675",
+    "before": "made, that must be made by Parliament and",
+    "target": "number",
+    "after": "by the President. The object is to eliminate",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 22,
+    "doc_id": "1998_125",
+    "before": "We do not propose to record our reasons",
+    "target": "number",
+    "after": "to deal with each item independently. We are",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 23,
+    "doc_id": "2015_249",
+    "before": "to say that these expressions have been held",
+    "target": "number",
+    "after": "to mean the subjective satisfaction of the officer",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 24,
+    "doc_id": "1998_781",
+    "before": "were to be accepted, as a rule, and",
+    "target": "number",
+    "after": "as an exception, we would in fact be",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 25,
+    "doc_id": "1977_344",
+    "before": "within the ambit of Section 14 2 and",
+    "target": "number",
+    "after": "under Section 14 1 of the Hindu Succession",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 26,
+    "doc_id": "1995_130",
+    "before": "by unlawful or unconstitutional means or for secession",
+    "target": "number",
+    "after": "is there any suggestion for impairing the integration",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 27,
+    "doc_id": "1987_529",
+    "before": "may be purchased by the State Government and",
+    "target": "number",
+    "after": "forest produce that may be sold by the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 28,
+    "doc_id": "1987_126",
+    "before": "against his brother quashed for his brothers benefit",
+    "target": "number",
+    "after": "was he doing it on his behalf, but",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 29,
+    "doc_id": "1975_347",
+    "before": "in l.p. number 53/71 and civil writ petitions",
+    "target": "number",
+    "after": ". 612 640 643 and 649/71 281/72 and",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 30,
+    "doc_id": "2004_971",
+    "before": "and were injured. The injured witnesses have also",
+    "target": "number",
+    "after": "been examined in the Court. Concluding his arguments,",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 31,
+    "doc_id": "1986_321",
+    "before": "conclusion that the charges against the said respondents",
+    "target": "number",
+    "after": "3 and 4 to the original petition were",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 32,
+    "doc_id": "1967_332",
+    "before": "the procedure laid down in Art. 368 and",
+    "target": "number",
+    "after": "as a result of the Bill becoming an",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 33,
+    "doc_id": "2011_1145",
+    "before": "value. The complainant-respondent in this petition was also",
+    "target": "number",
+    "after": "willing to concede that the document relied upon",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 34,
+    "doc_id": "1989_430",
+    "before": "trap party in his house, are steps based",
+    "target": "number",
+    "after": "on probability but on a mechanical certainty that",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 35,
+    "doc_id": "2010_732",
+    "before": "Inc petitioner before the High Court were false",
+    "target": "number",
+    "after": "is there any material to even prima facie",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 36,
+    "doc_id": "1973_170",
+    "before": "had the benefit of the Development Reserve, though",
+    "target": "number",
+    "after": "in cash but in other assets representing the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 37,
+    "doc_id": "2007_1333",
+    "before": "was examined but he was not cross examined",
+    "target": "number",
+    "after": "his statement was recorded in presence of the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 38,
+    "doc_id": "2016_373",
+    "before": "perception of a Judge number self-adhered moralistic vision",
+    "target": "number",
+    "after": "hypothetical apprehensions should be allowed to have any",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 39,
+    "doc_id": "1979_166",
+    "before": "Station. Despite a request made by the deceased",
+    "target": "number",
+    "after": "to assault them Shivaji is said to have",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 40,
+    "doc_id": "1952_82",
+    "before": "order under section 33 4 and, therefore, was",
+    "target": "number",
+    "after": "one in respect of which section 66 1",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 41,
+    "doc_id": "1975_175",
+    "before": "additional surcharge even on that portion of its",
+    "target": "number",
+    "after": "-business income which is contained in the residual",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 42,
+    "doc_id": "1960_128",
+    "before": "Womens Rights to Property Act, 1937, applied to",
+    "target": "number",
+    "after": "-agricultural property and so was valid. In this",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 43,
+    "doc_id": "1985_4",
+    "before": "precarious but that, he had neither any fever",
+    "target": "number",
+    "after": "any symptoms of pneumonia. The evidence of Dr.",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 44,
+    "doc_id": "1957_70",
+    "before": "are disposed to think that even a layman",
+    "target": "number",
+    "after": "familiar with legal technicalities and equitable principles on",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 45,
+    "doc_id": "1962_116",
+    "before": "the dispute with which we are concerned is",
+    "target": "number",
+    "after": "one falling within the jurisdiction of the Central",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 46,
+    "doc_id": "2013_143",
+    "before": "applicants Arun K.C. and Sunil K.C. in I.A.",
+    "target": "number",
+    "after": ". 3391 and 4531 of 2008 had full",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 47,
+    "doc_id": "2019_925",
+    "before": "the dependent and number any relative or person",
+    "target": "number",
+    "after": "dependent on him would also indicate that illegal",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 48,
+    "doc_id": "1999_559",
+    "before": "available only at the stage of super-specialty and",
+    "target": "number",
+    "after": "at the stage of Post-Graduate studies in Medicine.",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 49,
+    "doc_id": "2006_593",
+    "before": "narrow sense of meaning only the suit and",
+    "target": "number",
+    "after": "appeal . and the word suit will include",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 50,
+    "doc_id": "1972_297",
+    "before": "Singhs Trilok Singh son of Surain Singh, accused",
+    "target": "number",
+    "after": "1 appellant number 2 in this Court and",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 51,
+    "doc_id": "1971_622",
+    "before": "warrant for this submission as neither the Act",
+    "target": "number",
+    "after": "clause 4 of Article 22 of the Constitution",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 52,
+    "doc_id": "1962_231",
+    "before": "the rent of the premises omitting the words",
+    "target": "number",
+    "after": "necessary for our present purposes . If the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 53,
+    "doc_id": "1975_478",
+    "before": "and other weaker sections, in this context, means",
+    "target": "number",
+    "after": "every back-ward class but those dismally depressed categories",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 54,
+    "doc_id": "1997_865",
+    "before": "such compensation under either of those Acts but",
+    "target": "number",
+    "after": "under both - Thus these two applications wee",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 55,
+    "doc_id": "2001_625",
+    "before": "be also put to the accused. Let us",
+    "target": "number",
+    "after": "see what were the questions put to the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 56,
+    "doc_id": "1980_427",
+    "before": "a notification dated september 29 1979 appointed nine",
+    "target": "number",
+    "after": "-official members and four ex-officio members to the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 57,
+    "doc_id": "2013_220",
+    "before": "making the necessary amendment in the Rules and",
+    "target": "number",
+    "after": "by issuing guidelines Circulars by the Sponsor Banks",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 58,
+    "doc_id": "1961_315",
+    "before": "butter. Putting aside the general argument, let us",
+    "target": "number",
+    "after": "look at the relevant provisions. The following words",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 59,
+    "doc_id": "2013_841",
+    "before": "the wheat loaded was soft common wheat and",
+    "target": "number",
+    "after": "durum wheat as required under the contract. The",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 60,
+    "doc_id": "1991_30",
+    "before": "the appellant was a deemed tenant is also",
+    "target": "number",
+    "after": "tenable. The appellant could not have been a",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 61,
+    "doc_id": "1969_63",
+    "before": "below, in the instant case, have neither ignored",
+    "target": "number",
+    "after": "misconstrued important pieces of evidence when they came",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 62,
+    "doc_id": "1985_40",
+    "before": "was in the nature of an advice and",
+    "target": "number",
+    "after": "an assessment as contemplated under rule 52. hence",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 63,
+    "doc_id": "1947_92",
+    "before": "regard being had to the surrounding circumstances and",
+    "target": "number",
+    "after": "by way of microscopic pedantic scrutiny, as has",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 64,
+    "doc_id": "2005_279",
+    "before": "give rise to the offence of culpable homicide",
+    "target": "number",
+    "after": "amounting to murder punishable under Part II of",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 65,
+    "doc_id": "1999_294",
+    "before": "II where the maximum punishment is neither death",
+    "target": "number",
+    "after": "imprisonment for life.",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 66,
+    "doc_id": "1982_172",
+    "before": "petition. The trade unions are, therefore, neither necessary",
+    "target": "number",
+    "after": "proper parties to the winding-up petition on the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 67,
+    "doc_id": "1965_84",
+    "before": "adding that the report was forwarded to appellant",
+    "target": "number",
+    "after": "i for its consideration. on december 20 1958",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 68,
+    "doc_id": "2012_269",
+    "before": "batch for the MBBS Course, which are courses",
+    "target": "number",
+    "after": "connected with the regular course of study. In",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 69,
+    "doc_id": "2006_576",
+    "before": "held that no retrospective promotion can be granted",
+    "target": "number",
+    "after": "any seniority can be given on retrospective basis",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 70,
+    "doc_id": "1956_60",
+    "before": "waste lands or nautor recently reclaimed lands and",
+    "target": "number",
+    "after": "to such trees on proprietary and cultivated lands.",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 71,
+    "doc_id": "1968_115",
+    "before": "be an adequate reason, it makes it almost",
+    "target": "number",
+    "after": "- controlling by saying that any other reason",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 72,
+    "doc_id": "1970_309",
+    "before": "required to identify an accused should have bad",
+    "target": "number",
+    "after": "opportunity of seeing him after the commission of",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 73,
+    "doc_id": "1971_268",
+    "before": "the plaintiff who was the immediate heir and",
+    "target": "number",
+    "after": "to Duraiswami who was a remoter heir. The",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 74,
+    "doc_id": "2007_101",
+    "before": "bear in mind that it has neither seen",
+    "target": "number",
+    "after": "heard the witnesses and should make due allowance",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 75,
+    "doc_id": "1996_419",
+    "before": "on the basis of the evidence adduced. Coming",
+    "target": "number",
+    "after": "to the evidence on record, we find that",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 76,
+    "doc_id": "1978_405",
+    "before": "object of making India a Socialist State. But",
+    "target": "number",
+    "after": "to permit the employer to close down is",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 77,
+    "doc_id": "2018_422",
+    "before": "EKYC process as mentioned in this office letter",
+    "target": "number",
+    "after": "800 29/2010VAS dated 16.08.2016. The instructions mentioned in",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 78,
+    "doc_id": "1975_441",
+    "before": "is not mentioned in the First Information Report",
+    "target": "number",
+    "after": "in the statements of the other two witnesses",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 79,
+    "doc_id": "1980_203",
+    "before": "any improper motive in withdrawing from the prosecution",
+    "target": "number",
+    "after": "can one say that the Magistrate failed to",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 80,
+    "doc_id": "2015_188",
+    "before": "narrow sense i.e. territorial and pecuniary jurisdiction and",
+    "target": "number",
+    "after": "question of limitation. The Court observed- The expression",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 81,
+    "doc_id": "1961_253",
+    "before": "used was upheld by the Judicial Committee as",
+    "target": "number",
+    "after": "amounting to depriving an owner of his property",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 82,
+    "doc_id": "1986_117",
+    "before": "original jurisdiction writ petition",
+    "target": "number",
+    "after": "75 of 1972. under article 32 of the",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 83,
+    "doc_id": "2018_1034",
+    "before": "Regulation 2 1 q 2 , which subsumes",
+    "target": "number",
+    "after": "merely immediate relatives but other forms in which",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 84,
+    "doc_id": "2008_1122",
+    "before": "its specie. All murder is culpable homicide but",
+    "target": "number",
+    "after": "vice-versa. Speaking generally, culpable homicide sans special characteristics",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 85,
+    "doc_id": "2009_1211",
+    "before": "was executed between respondent number 2 and respondent",
+    "target": "number",
+    "after": "4 on 3.7.2006. A part of open space",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 86,
+    "doc_id": "2008_1319",
+    "before": "of this Court, as noted herein earlier, we",
+    "target": "number",
+    "after": "proceed to take up the facts leading to",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 87,
+    "doc_id": "1984_239",
+    "before": "are special and local laws and must over-ride.",
+    "target": "number",
+    "after": "comes the third component which may be clinching.",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 88,
+    "doc_id": "1962_63",
+    "before": "is not disputed, apply both to residential and",
+    "target": "number",
+    "after": "-residential buildings. So too the 1955 Act. Therefore,",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 89,
+    "doc_id": "2002_121",
+    "before": "put a man in the gallows is however",
+    "target": "number",
+    "after": "very plainly understandable neither it is understandable as",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 90,
+    "doc_id": "2013_345",
+    "before": "also an eye-witness to the occurrence, was also",
+    "target": "number",
+    "after": "seriously disputed. We also find that the occurrence,",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 91,
+    "doc_id": "2013_423",
+    "before": "plaintiff has alleged that the transaction between defendant",
+    "target": "number",
+    "after": "1 and Canbank Mutual Fund are totally unconnected",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 92,
+    "doc_id": "2019_639",
+    "before": "any person who is resident in any place",
+    "target": "number",
+    "after": "forming part of India and who for that",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 93,
+    "doc_id": "1983_250",
+    "before": "per se be an act of misconduct though",
+    "target": "number",
+    "after": "enumerated in S.O. 22 can be punished under",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 94,
+    "doc_id": "1972_7",
+    "before": "indicate a sale of the goodwill, neither that",
+    "target": "number",
+    "after": "any other clause mentions what its purchase price",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 95,
+    "doc_id": "1999_830",
+    "before": "subject to the provisions of the Act and",
+    "target": "number",
+    "after": "an absolute right. The section, therefore, is controlled",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 96,
+    "doc_id": "1984_297",
+    "before": "drawing an adverse inference against the respondent for",
+    "target": "number",
+    "after": "-production of documents which he was called upon",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 97,
+    "doc_id": "2000_1113",
+    "before": "evidence of the chowkidar who was examined and",
+    "target": "number",
+    "after": "the one who was not examined, unless the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 98,
+    "doc_id": "2003_989",
+    "before": "to such enhancement or reduction from a date",
+    "target": "number",
+    "after": "earlier that the commencement of the financial year.",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 99,
+    "doc_id": "2011_1228",
+    "before": "respondent to move a court of law and",
+    "target": "number",
+    "after": "when an Honble Division Bench has shown courage",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 100,
+    "doc_id": "2009_413",
+    "before": "of the landlady and her brother. Because of",
+    "target": "number",
+    "after": "- registration of the said decree, ownership rights",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 101,
+    "doc_id": "2014_170",
+    "before": "almost all the writ petitions the candidates appointed,",
+    "target": "number",
+    "after": "to speak of the candidates selected, were not",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 102,
+    "doc_id": "1955_58",
+    "before": "the acquesition or requisition, is neither the one",
+    "target": "number",
+    "after": "the other but a public purpose. Acquisition of",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 103,
+    "doc_id": "2013_645",
+    "before": "dealing at arms length number facade of sale",
+    "target": "number",
+    "after": "fictitious sale brought about in quick succession or",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 104,
+    "doc_id": "1976_66",
+    "before": "civil appellate jurisdiction civil appeal",
+    "target": "number",
+    "after": "1237 of 1968. from the judgment and order",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 105,
+    "doc_id": "1978_31",
+    "before": "rights of action are property and there is",
+    "target": "number",
+    "after": "1 1970 3 S.C.R. 530. reason why they",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 106,
+    "doc_id": "2003_364",
+    "before": "the deceased was an employee. This order cannot",
+    "target": "number",
+    "after": "be enforced on the basis that the deceased",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 107,
+    "doc_id": "1994_0",
+    "before": "some inconvenience or absurdity, hardship or injustice, presumably",
+    "target": "number",
+    "after": "intended, a construction may be put upon it",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 108,
+    "doc_id": "2015_351",
+    "before": "This Court was only concerned with sales tax",
+    "target": "number",
+    "after": "actually paid to the Rajasthan Government, and therefore",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 109,
+    "doc_id": "2008_1581",
+    "before": "custody to him. Children are not mere chattels",
+    "target": "number",
+    "after": "are they toys for their parents. Absolute right",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 110,
+    "doc_id": "1974_298",
+    "before": "who is the last purchaser in the State",
+    "target": "number",
+    "after": "exempt from taxation under Sec. 3 3 en",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 111,
+    "doc_id": "1982_94",
+    "before": "The job of a Judge is judging and",
+    "target": "number",
+    "after": "law- making. In Lord Devlins words Judges are",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 112,
+    "doc_id": "2012_429",
+    "before": "under Organised crime has for quite some years",
+    "target": "number",
+    "after": "come up as a very serious threat to",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 113,
+    "doc_id": "1968_6",
+    "before": "dioxide from the said mixture at any stage",
+    "target": "number",
+    "after": "is it compressed or stored as carbon dioxide",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 114,
+    "doc_id": "1997_1257",
+    "before": "the learned Single Judge must be direct and",
+    "target": "number",
+    "after": "evasive. The fact remains that the appellant has",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 115,
+    "doc_id": "2010_324",
+    "before": "can only apply when there are profits and",
+    "target": "number",
+    "after": "when there are nonprofits. It is clear that",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 116,
+    "doc_id": "1963_113",
+    "before": "Act only and a suit is, of course,",
+    "target": "number",
+    "after": "an application. Turning number to the first kind,",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 117,
+    "doc_id": "2005_173",
+    "before": "it ignored the same on the ground that",
+    "target": "number",
+    "after": "was very small. The Revenue on the other",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (quantity/cardinality)"
+  },
+  {
+    "index": 118,
+    "doc_id": "1962_426",
+    "before": "date when the goods ought to be delivered.",
+    "target": "number",
+    "after": "it is not in dispute that if there",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 119,
+    "doc_id": "1959_46",
+    "before": "should be held to be number- mandatory unless",
+    "target": "number",
+    "after": "-compliance with the provisions was visited with some",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 120,
+    "doc_id": "2019_855",
+    "before": "to 14 14th point reserved for SC and",
+    "target": "number",
+    "after": "as Point No.9 to 13 and he amended",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 121,
+    "doc_id": "1983_250",
+    "before": "was from status to contract, the contract being",
+    "target": "number",
+    "after": "left to be negotiated by two unequal persons",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 122,
+    "doc_id": "1947_163",
+    "before": "the purpose underlying the statement under Section 342",
+    "target": "number",
+    "after": "Section 313 Cr.P.C. in the following words The",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 123,
+    "doc_id": "2013_215",
+    "before": "committed suicide On the fateful day, neither myself",
+    "target": "number",
+    "after": "my father requested my mother to accompany us",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 124,
+    "doc_id": "2002_131",
+    "before": "do is only to give its consent and",
+    "target": "number",
+    "after": "to determine any matter judicially. . The judicial",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 125,
+    "doc_id": "2009_1419",
+    "before": "marriage, the above attack was highly premeditated and",
+    "target": "number",
+    "after": "at the heat of moment. The High Court",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 126,
+    "doc_id": "2007_1516",
+    "before": "appellant Ravindran was not justified in view of",
+    "target": "number",
+    "after": "-compliance with the mandatory provisions of Section 42",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 127,
+    "doc_id": "2017_279",
+    "before": "CA NO.253 OF 2017 the applicant was also",
+    "target": "number",
+    "after": "pasted. Paper No. 14 Ka/75 to 14 Ka/78",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 128,
+    "doc_id": "1996_544",
+    "before": "besides quashing the penalty proceedings. It is, therefore,",
+    "target": "number",
+    "after": "necessary, - it is argues - that within",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 129,
+    "doc_id": "1979_196",
+    "before": "Delhi, excise could not be levied on it",
+    "target": "number",
+    "after": "countervailing duty could be imposed on its import",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 130,
+    "doc_id": "1994_816",
+    "before": "the public notice dated 11-11-1983 in a manner",
+    "target": "number",
+    "after": "permitted by the amended Policy, the appellants cannot",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 131,
+    "doc_id": "1995_265",
+    "before": "bribe of Rs. 2,000/- from the complainant for",
+    "target": "number",
+    "after": "taking any action against him. After haggling, the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 132,
+    "doc_id": "1966_260",
+    "before": "these also must differ, for, the pay scales",
+    "target": "number",
+    "after": "obtaining in the State Governments and the Central",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 133,
+    "doc_id": "1990_193",
+    "before": "power generation, fertilisers, and other industries, I am",
+    "target": "number",
+    "after": "in favour of any such differentiation, as it",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 134,
+    "doc_id": "2007_960",
+    "before": "have only an advisory role to play and",
+    "target": "number",
+    "after": "-adherence to or deviation from them is necessarily",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 135,
+    "doc_id": "2011_231",
+    "before": "governed by the Reserve Bank of India Act",
+    "target": "number",
+    "after": "the Banking Regulation Act, 1949. The doctrine of",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 136,
+    "doc_id": "2007_709",
+    "before": "State Government was that the Government had decided",
+    "target": "number",
+    "after": "to appoint the selected candidates on account of",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 137,
+    "doc_id": "1998_939",
+    "before": "has filed the Contempt case which is also",
+    "target": "number",
+    "after": "before us. The respondents have pointed out mat",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 138,
+    "doc_id": "2013_220",
+    "before": "by the bank cannot override the statutory Rules",
+    "target": "number",
+    "after": "can supplement it to the extent that the",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 139,
+    "doc_id": "1960_148",
+    "before": "as a defect of an unsubstantial character. It",
+    "target": "number",
+    "after": "remains to consider some of the decisions which",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 140,
+    "doc_id": "1962_224",
+    "before": "on historical reasons could be upheld as being",
+    "target": "number",
+    "after": "contrary to the equal protection clause in Art.",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 141,
+    "doc_id": "2008_540",
+    "before": "it could prima facie be found that respondent",
+    "target": "number",
+    "after": "4 had stopped the vehicle and conducted the",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 142,
+    "doc_id": "1957_37",
+    "before": "by the commissioner of a division. in cases",
+    "target": "number",
+    "after": "provided for by clauses a b and c",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 143,
+    "doc_id": "1975_451",
+    "before": "as what to ask a witness and what",
+    "target": "number",
+    "after": "to, what submissions to make and what points",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 144,
+    "doc_id": "2008_54",
+    "before": "him for it may be so fierce as",
+    "target": "number",
+    "after": "to yield a step, without manifest danger of",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 145,
+    "doc_id": "2012_73",
+    "before": "transfer instructions were duly signed jointly by accused",
+    "target": "number",
+    "after": "5, the Managing Director of accused number 1",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 146,
+    "doc_id": "1950_15",
+    "before": "of the shares remaining out of this issue",
+    "target": "number",
+    "after": "applied for by the 10th March, 1945, shall",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 147,
+    "doc_id": "1962_31",
+    "before": "no particular significance in relation to the medicine,",
+    "target": "number",
+    "after": "did that word mean or convey any special",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 148,
+    "doc_id": "1969_13",
+    "before": "civil appellate jurisdiction civil appeals",
+    "target": "number",
+    "after": ". 1549 to 1552 of 1968. appeals from",
+    "label": "GENUINE_NOUN",
+    "intended": "noun (numerical identifier / No.)"
+  },
+  {
+    "index": 149,
+    "doc_id": "1958_40",
+    "before": "is vitally different from that applicable to villages",
+    "target": "number",
+    "after": "under consolidation, and there is thus discrimination which",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  },
+  {
+    "index": 150,
+    "doc_id": "2006_548",
+    "before": "to them by the Public Service Commission. It",
+    "target": "number",
+    "after": "transpires that even before the Public Service Commission",
+    "label": "MISSED_NEGATION",
+    "intended": "not/nor/non/no"
+  }
+]

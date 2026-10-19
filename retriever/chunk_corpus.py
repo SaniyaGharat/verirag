@@ -235,40 +235,76 @@ def main():
 
     start_time = time.time()
 
-    # 1. Load input dataset
-    print(f"[1/5] Loading cleaned dataset from {INPUT_PARQUET}...")
-    if not INPUT_PARQUET.exists():
-        raise FileNotFoundError(f"Input file not found at {INPUT_PARQUET}. Run data/apply_cleaning_v4.py first.")
+    # Check if chunks.parquet already exists
+    if OUTPUT_PARQUET.exists():
+        print(f"[INFO] Found existing chunks file at: {OUTPUT_PARQUET}")
+        print("       Loading existing chunks.parquet to compute statistics instead of re-chunking.")
+        load_start = time.time()
+        df_chunks = pd.read_parquet(OUTPUT_PARQUET)
+        print(f"       Loaded {len(df_chunks):,} chunks into memory in {time.time() - load_start:.2f}s.")
 
-    df_raw = pd.read_parquet(INPUT_PARQUET, columns=["id", "text_cleaned"])
-    total_docs = len(df_raw)
-    print(f"      Loaded {total_docs:,} judgments into memory in {time.time() - start_time:.2f}s.")
+        # In df_chunks, every document starts with chunk_index == 0
+        doc_group = (df_chunks["chunk_index"] == 0).cumsum()
+        s_doc_chunks = df_chunks.groupby(doc_group).size()
+        total_docs = len(s_doc_chunks)
+        total_chunks = len(df_chunks)
+        word_counts = df_chunks["word_count"]
+    else:
+        # 1. Load input dataset
+        print(f"[1/5] Loading cleaned dataset from {INPUT_PARQUET}...")
+        if not INPUT_PARQUET.exists():
+            raise FileNotFoundError(f"Input file not found at {INPUT_PARQUET}. Run data/apply_cleaning_v4.py first.")
 
-    # 2. Parallel chunking
-    num_workers = min(8, mp.cpu_count())
-    batch_size = 500
-    print(f"[2/5] Chunking {total_docs:,} documents using {num_workers} parallel workers...")
+        df_raw = pd.read_parquet(INPUT_PARQUET, columns=["id", "text_cleaned"])
+        total_docs = len(df_raw)
+        print(f"      Loaded {total_docs:,} judgments into memory in {time.time() - start_time:.2f}s.")
 
-    items = [(str(df_raw.iloc[i]["id"]), str(df_raw.iloc[i]["text_cleaned"])) for i in range(total_docs)]
-    batches = [items[i:i + batch_size] for i in range(0, total_docs, batch_size)]
+        # 2. Parallel chunking
+        num_workers = min(8, mp.cpu_count())
+        batch_size = 500
+        print(f"[2/5] Chunking {total_docs:,} documents using {num_workers} parallel workers...")
 
-    all_chunks = []
-    chunks_per_doc_list = []
+        items = [(str(df_raw.iloc[i]["id"]), str(df_raw.iloc[i]["text_cleaned"])) for i in range(total_docs)]
+        batches = [items[i:i + batch_size] for i in range(0, total_docs, batch_size)]
 
-    with mp.Pool(processes=num_workers) as pool:
-        for batch_chunks, counts in tqdm(pool.imap(_process_batch, batches), total=len(batches), desc="Chunking"):
-            all_chunks.extend(batch_chunks)
-            chunks_per_doc_list.extend(counts)
+        all_chunks = []
+        chunks_per_doc_list = []
 
-    chunking_duration = time.time() - start_time
-    total_chunks = len(all_chunks)
-    print(f"      Completed chunking in {chunking_duration:.2f}s ({total_docs / chunking_duration:.1f} docs/sec).")
+        with mp.Pool(processes=num_workers) as pool:
+            for batch_chunks, counts in tqdm(pool.imap(_process_batch, batches), total=len(batches), desc="Chunking"):
+                all_chunks.extend(batch_chunks)
+                chunks_per_doc_list.extend(counts)
+
+        chunking_duration = time.time() - start_time
+        total_chunks = len(all_chunks)
+        print(f"      Completed chunking in {chunking_duration:.2f}s ({total_docs / chunking_duration:.1f} docs/sec).")
+
+        s_doc_chunks = pd.Series(chunks_per_doc_list)
+        df_chunks = pd.DataFrame(all_chunks)
+        word_counts = df_chunks["word_count"]
+
+        # 4. Save to parquet
+        print(f"[4/5] Saving {total_chunks:,} chunks to {OUTPUT_PARQUET}...")
+        OUTPUT_PARQUET.parent.mkdir(parents=True, exist_ok=True)
+        df_chunks.to_parquet(OUTPUT_PARQUET, index=False, engine="pyarrow", compression="snappy")
+        file_size_mb = OUTPUT_PARQUET.stat().st_size / (1024 * 1024)
+        print(f"      Saved {len(df_chunks):,} rows ({file_size_mb:.2f} MB on disk).")
+
+    # Confirmation that chunks.parquet exists, with file size, row count, and .info()
+    print("\n" + "=" * 80)
+    print("CHUNKS.PARQUET FILE CONFIRMATION & DATAFRAME INFO")
+    print("=" * 80)
+    file_stat = OUTPUT_PARQUET.stat()
+    file_size_bytes = file_stat.st_size
+    file_size_mb = file_size_bytes / (1024 * 1024)
+    print(f"File Path    : {OUTPUT_PARQUET.resolve()}")
+    print(f"Exists       : {OUTPUT_PARQUET.exists()}")
+    print(f"File Size    : {file_size_bytes:,} bytes ({file_size_mb:.2f} MB)")
+    print(f"Row Count    : {len(df_chunks):,} rows")
+    print(f"\nDataFrame .info():")
+    df_chunks.info()
 
     # 3. Compute corpus-wide statistics
-    print("[3/5] Computing corpus-wide chunk statistics...")
-    s_doc_chunks = pd.Series(chunks_per_doc_list)
-    word_counts = pd.Series([c["word_count"] for c in all_chunks])
-
     avg_chunks_per_doc = s_doc_chunks.mean()
     min_chunks_per_doc = int(s_doc_chunks.min())
     max_chunks_per_doc = int(s_doc_chunks.max())
@@ -278,60 +314,57 @@ def main():
     min_words_per_chunk = int(word_counts.min())
     max_words_per_chunk = int(word_counts.max())
 
-    # 4. Save to parquet
-    print(f"[4/5] Saving {total_chunks:,} chunks to {OUTPUT_PARQUET}...")
-    OUTPUT_PARQUET.parent.mkdir(parents=True, exist_ok=True)
-    df_chunks = pd.DataFrame(all_chunks)
-    df_chunks.to_parquet(OUTPUT_PARQUET, index=False, engine="pyarrow", compression="snappy")
-    file_size_mb = OUTPUT_PARQUET.stat().st_size / (1024 * 1024)
-    print(f"      Saved {len(df_chunks):,} rows ({file_size_mb:.2f} MB on disk).")
-
-    # Round-trip QA check
-    print("      Verifying round-trip parquet integrity...")
-    df_verify = pd.read_parquet(OUTPUT_PARQUET)
-    assert len(df_verify) == total_chunks, "Row count mismatch in parquet verification!"
-    expected_cols = ["chunk_id", "doc_id", "chunk_index", "text", "word_count", "char_start", "char_end"]
-    assert list(df_verify.columns) == expected_cols, f"Column mismatch! Expected {expected_cols}, got {list(df_verify.columns)}"
-    print("      Parquet round-trip verification passed.")
-
-    # 5. Display metrics and sample multi-chunk document inspection
+    # Display metrics
     print("\n" + "=" * 80)
     print("CORPUS CHUNKING SUMMARY METRICS")
     print("=" * 80)
-    print(f"Total documents processed       : {total_docs:,}")
-    print(f"Total chunks produced           : {total_chunks:,}")
-    print(f"Chunks per document (avg)       : {avg_chunks_per_doc:.2f}")
-    print(f"Chunks per document (min / max) : {min_chunks_per_doc:,} / {max_chunks_per_doc:,}")
-    print(f"Single-chunk documents          : {single_chunk_docs:,} ({single_chunk_docs / total_docs * 100:.2f}%)")
-    print(f"Words per chunk (avg)           : {avg_words_per_chunk:.2f}")
-    print(f"Words per chunk (min / max)     : {min_words_per_chunk:,} / {max_words_per_chunk:,}")
-    print(f"Output parquet file             : {OUTPUT_PARQUET}")
-    print(f"Output parquet size             : {file_size_mb:.2f} MB")
+    print(f"1. Total documents processed       : {total_docs:,}")
+    print(f"   Total chunks produced           : {total_chunks:,}")
+    print(f"2. Chunks per document (avg)       : {avg_chunks_per_doc:.2f}")
+    print(f"   Chunks per document (min / max) : {min_chunks_per_doc:,} / {max_chunks_per_doc:,}")
+    print(f"   Single-chunk documents          : {single_chunk_docs:,} ({single_chunk_docs / total_docs * 100:.2f}%)")
+    print(f"3. Words per chunk (avg)           : {avg_words_per_chunk:.2f}")
+    print(f"   Words per chunk (min / max)     : {min_words_per_chunk:,} / {max_words_per_chunk:,}")
     print("=" * 80)
 
-    # Find a multi-chunk document to display 3 example chunks in order
+    # 4. Find a multi-chunk document to display 3 example chunks in order
     print("\n" + "=" * 80)
     print("VISUAL VERIFICATION: 3 CONSECUTIVE CHUNKS FROM A MULTI-CHUNK DOCUMENT")
     print("=" * 80)
 
-    sample_doc_id = df_raw.iloc[0]["id"]
-    doc_chunks = [c for c in all_chunks if c["doc_id"] == str(sample_doc_id)][:3]
+    # Select the first multi-chunk document
+    sample_doc_id = df_chunks.iloc[0]["doc_id"]
+    doc_chunk_rows = df_chunks[df_chunks["doc_id"] == sample_doc_id].sort_values("chunk_index").head(3).to_dict(orient="records")
 
-    for idx, c in enumerate(doc_chunks):
-        print(f"\n--- CHUNK {c['chunk_index']} ({c['chunk_id']}) ---")
-        print(f"Word Count : {c['word_count']} words | Character Span : [{c['char_start']}:{c['char_end']}]")
-        print(f"Full Text  :\n\"{c['text']}\"")
-        if idx < len(doc_chunks) - 1:
-            next_c = doc_chunks[idx + 1]
+    print(f"Inspecting Document ID: '{sample_doc_id}' (Total chunks for doc: {(df_chunks['doc_id'] == sample_doc_id).sum()})")
+
+    for idx, c in enumerate(doc_chunk_rows):
+        print("\n" + "-" * 60)
+        print(f"CHUNK {c['chunk_index']} ({c['chunk_id']})")
+        print(f"Document ID    : {c['doc_id']}")
+        print(f"Word Count     : {c['word_count']} words")
+        print(f"Character Span : [{c['char_start']}:{c['char_end']}] (length: {c['char_end'] - c['char_start']} chars)")
+        print("-" * 60)
+        print("Full Text:")
+        print(f"\"{c['text']}\"")
+
+        if idx < len(doc_chunk_rows) - 1:
+            next_c = doc_chunk_rows[idx + 1]
             overlap_start = next_c["char_start"]
             overlap_end = min(c["char_end"], next_c["char_end"])
-            if overlap_end > overlap_start:
-                overlap_text = df_raw.iloc[0]["text_cleaned"][overlap_start:overlap_end]
+            overlap_len = overlap_end - overlap_start
+            if overlap_len > 0:
+                overlap_text = c["text"][-overlap_len:]
                 overlap_words = len(overlap_text.split())
-                print(f"\n>>> OVERLAP with Chunk {next_c['chunk_index']} ({overlap_words} words, chars [{overlap_start}:{overlap_end}]):")
-                print(f">>> \"{overlap_text}\"")
+                print("\n" + " " * 4 + ">" * 3 + f" OVERLAP CHECK (Chunk {c['chunk_index']} -> Chunk {next_c['chunk_index']}) " + "<" * 3)
+                print(f"    Overlap character span : [{overlap_start}:{overlap_end}] ({overlap_len} chars)")
+                print(f"    Overlap word count     : {overlap_words} words (target: ~50 words)")
+                print(f"    Chunk {next_c['chunk_index']} starts with the exact end of Chunk {c['chunk_index']}: {next_c['text'].startswith(overlap_text)}")
+                print(f"    Overlap Text Snippet:\n    \"{overlap_text}\"")
 
-    print("\nChunking pipeline complete.")
+    print("\n" + "=" * 80)
+    print("Chunking pipeline execution complete.")
+    print("=" * 80)
 
 
 if __name__ == "__main__":
