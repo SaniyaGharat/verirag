@@ -1,0 +1,398 @@
+{
+  "total_instances": 8349,
+  "unique_types": 402,
+  "top60": [
+    {
+      "raw": "companyaccused",
+      "output": "co accused",
+      "count": 2664
+    },
+    {
+      "raw": "companyfee",
+      "output": "co fee",
+      "count": 954
+    },
+    {
+      "raw": "companyowners",
+      "output": "co owners",
+      "count": 502
+    },
+    {
+      "raw": "companyowner",
+      "output": "co owner",
+      "count": 403
+    },
+    {
+      "raw": "companysid",
+      "output": "co sid",
+      "count": 251
+    },
+    {
+      "raw": "companytd",
+      "output": "co td",
+      "count": 215
+    },
+    {
+      "raw": "companyten",
+      "output": "co ten",
+      "count": 201
+    },
+    {
+      "raw": "companysti",
+      "output": "co sti",
+      "count": 160
+    },
+    {
+      "raw": "companytai",
+      "output": "co tai",
+      "count": 151
+    },
+    {
+      "raw": "companyconspirators",
+      "output": "co conspirators",
+      "count": 133
+    },
+    {
+      "raw": "companyownership",
+      "output": "co ownership",
+      "count": 110
+    },
+    {
+      "raw": "companyheirs",
+      "output": "co heirs",
+      "count": 92
+    },
+    {
+      "raw": "companyopted",
+      "output": "co opted",
+      "count": 88
+    },
+    {
+      "raw": "companyterminus",
+      "output": "co terminus",
+      "count": 82
+    },
+    {
+      "raw": "companymis",
+      "output": "co mis",
+      "count": 79
+    },
+    {
+      "raw": "companyrelationship",
+      "output": "co relationship",
+      "count": 76
+    },
+    {
+      "raw": "companyled",
+      "output": "co led",
+      "count": 65
+    },
+    {
+      "raw": "companynec",
+      "output": "co nec",
+      "count": 60
+    },
+    {
+      "raw": "companyvillagers",
+      "output": "co villagers",
+      "count": 58
+    },
+    {
+      "raw": "companytenant",
+      "output": "co tenant",
+      "count": 49
+    },
+    {
+      "raw": "companydefendants",
+      "output": "co defendants",
+      "count": 46
+    },
+    {
+      "raw": "companynoting",
+      "output": "co noting",
+      "count": 43
+    },
+    {
+      "raw": "companytrustees",
+      "output": "co trustees",
+      "count": 42
+    },
+    {
+      "raw": "companyoption",
+      "output": "co option",
+      "count": 42
+    },
+    {
+      "raw": "companyplaintiff",
+      "output": "co plaintiff",
+      "count": 41
+    },
+    {
+      "raw": "companyoa",
+      "output": "co oa",
+      "count": 40
+    },
+    {
+      "raw": "companyoons",
+      "output": "co oons",
+      "count": 39
+    },
+    {
+      "raw": "companyvic",
+      "output": "co vic",
+      "count": 38
+    },
+    {
+      "raw": "companyparcener",
+      "output": "co parcener",
+      "count": 36
+    },
+    {
+      "raw": "companydonable",
+      "output": "co donable",
+      "count": 33
+    },
+    {
+      "raw": "companytrustee",
+      "output": "co trustee",
+      "count": 32
+    },
+    {
+      "raw": "companyopt",
+      "output": "co opt",
+      "count": 32
+    },
+    {
+      "raw": "companyrg",
+      "output": "co rg",
+      "count": 32
+    },
+    {
+      "raw": "companynoted",
+      "output": "co noted",
+      "count": 31
+    },
+    {
+      "raw": "companytenants",
+      "output": "co tenants",
+      "count": 29
+    },
+    {
+      "raw": "companyplaintiffs",
+      "output": "co plaintiffs",
+      "count": 27
+    },
+    {
+      "raw": "companydance",
+      "output": "co dance",
+      "count": 26
+    },
+    {
+      "raw": "companyparcenary",
+      "output": "co parcenary",
+      "count": 26
+    },
+    {
+      "raw": "companyfi",
+      "output": "co fi",
+      "count": 26
+    },
+    {
+      "raw": "companytenure",
+      "output": "co tenure",
+      "count": 25
+    },
+    {
+      "raw": "companypartner",
+      "output": "co partner",
+      "count": 25
+    },
+    {
+      "raw": "companywebs",
+      "output": "co webs",
+      "count": 23
+    },
+    {
+      "raw": "companyni",
+      "output": "co ni",
+      "count": 23
+    },
+    {
+      "raw": "companyces",
+      "output": "co ces",
+      "count": 22
+    },
+    {
+      "raw": "companytri",
+      "output": "co tri",
+      "count": 20
+    },
+    {
+      "raw": "companyard",
+      "output": "co ard",
+      "count": 19
+    },
+    {
+      "raw": "companyshares",
+      "output": "co shares",
+      "count": 19
+    },
+    {
+      "raw": "companypilots",
+      "output": "co pilots",
+      "count": 19
+    },
+    {
+      "raw": "companybrother",
+      "output": "co brother",
+      "count": 18
+    },
+    {
+      "raw": "companyemployees",
+      "output": "co employees",
+      "count": 18
+    },
+    {
+      "raw": "companycurricular",
+      "output": "co curricular",
+      "count": 17
+    },
+    {
+      "raw": "companytenancy",
+      "output": "co tenancy",
+      "count": 17
+    },
+    {
+      "raw": "companyports",
+      "output": "co ports",
+      "count": 17
+    },
+    {
+      "raw": "companywidow",
+      "output": "co widow",
+      "count": 17
+    },
+    {
+      "raw": "companydelinquent",
+      "output": "co delinquent",
+      "count": 16
+    },
+    {
+      "raw": "companymutations",
+      "output": "co mutations",
+      "count": 16
+    },
+    {
+      "raw": "companysum",
+      "output": "co sum",
+      "count": 16
+    },
+    {
+      "raw": "companydung",
+      "output": "co dung",
+      "count": 15
+    },
+    {
+      "raw": "companyfir",
+      "output": "co fir",
+      "count": 15
+    },
+    {
+      "raw": "companypre",
+      "output": "co pre",
+      "count": 15
+    }
+  ],
+  "top15_sentences": [
+    {
+      "raw": "companyaccused",
+      "output": "co accused",
+      "count": 2664,
+      "sentence": "part of the companyspiracy. It is also difficult to fathom why PW-10 and PW-39 were never arrayed as companyaccused, if they were present at the time of the companyspiracy and they chose to keep quiet about the companyspiracy."
+    },
+    {
+      "raw": "companyfee",
+      "output": "co fee",
+      "count": 954,
+      "sentence": "produce, in substance it includes all agricultural or horticultural produce but excludes,  1  tea, companyfee, rubber, cashew, cardamom, pepper and companyton from the definition of the agricultural or horticultural"
+    },
+    {
+      "raw": "companyowners",
+      "output": "co owners",
+      "count": 502,
+      "sentence": "for the first time about the partition deed dated 13.03.1969 and found that the plaintiffs and other companyowners are excluded. Accordingly, they filed a suit for following relief For a decree to declare that the plaintiffs"
+    },
+    {
+      "raw": "companyowner",
+      "output": "co owner",
+      "count": 403,
+      "sentence": "companywner of the Pemberton Soaring Centre  who was also the widow of the deceased glider pilot, the other companyowner  had companymunicated to the insurance investigator Diligence that the Pemberton Soaring Centre was"
+    },
+    {
+      "raw": "companysid",
+      "output": "co sid",
+      "count": 251,
+      "sentence": "The same may, therefore, be usefully number ticed below  SCC p.432  From the above decisions, in our companysid- ered view, the following general principles re- garding powers of the appellate companyrt while dealing"
+    },
+    {
+      "raw": "companytd",
+      "output": "co td",
+      "count": 215,
+      "sentence": "Vehicles Act of 1939, and must apply proprio vigore to the companyresponding provisions of the Motor Contd companytd. Within fifteen days from the date of death of a government employee, an ex gratia assistance of twenty-five"
+    },
+    {
+      "raw": "companyten",
+      "output": "co ten",
+      "count": 201,
+      "sentence": "of West Bengal alone, would number be available to the respondent. Let us examine the merits of this companyten-tion. Para 5 of the Instructions to the Candidates companytained in the pamphlet issued for the Indian"
+    },
+    {
+      "raw": "companysti",
+      "output": "co sti",
+      "count": 160,
+      "sentence": "amongst the equals. That the Chief Justice is the master of the roster. He alone has the prerogative to companysti- tute benches of the companyrt and allocate cases to the benches so companystituted. That the puisne"
+    },
+    {
+      "raw": "companytai",
+      "output": "co tai",
+      "count": 151,
+      "sentence": "Court of Judicature at Calcutta Civil Appeal No.5808 of 2017 SK. MD. Rafique vs. Managing Committee, companytai Rahamania High Madrasah and Others The aforementioned Writ Petition No.20650 W  of 2013 was filed by"
+    },
+    {
+      "raw": "companyconspirators",
+      "output": "co conspirators",
+      "count": 133,
+      "sentence": "operating Coin.mx, as an unlicensed money transmitting business. The government alleged that Murgio and his companyconspirators attempted to shield the true nature of his Bitcoin exchange business by operating through several front"
+    },
+    {
+      "raw": "companyownership",
+      "output": "co ownership",
+      "count": 110,
+      "sentence": "that inter-se the companyowners registration of right by itself would number be a bar for claiming companyownership, however, said right of re-opening is number without fetters of limitation when openly, properties are"
+    },
+    {
+      "raw": "companyheirs",
+      "output": "co heirs",
+      "count": 92,
+      "sentence": "guntas on 23.11.1959 to Bala Mallaiah vide registered sale deed. He sold the share inherited by other companyheirs also to Bala Mallaiah. It was found in the preliminary decree for partition dated 24.11.1970 that defendant"
+    },
+    {
+      "raw": "companyopted",
+      "output": "co opted",
+      "count": 88,
+      "sentence": "may be, in the manner laid down in sub-rule  2  of Rule 6A one person interested in education  to be companyopted  in the manner laid down in clause  i  of sub-rule  3  of Rule 6A Provided that in the case of an institution"
+    },
+    {
+      "raw": "companyterminus",
+      "output": "co terminus",
+      "count": 82,
+      "sentence": "arbitrator. Shri Nakul Dewan, on the other hand, argued that the expression unable to present his case was companyterminus with breach of natural justice which went to number only the hearing before the arbitrator, but also"
+    },
+    {
+      "raw": "companymis",
+      "output": "co mis",
+      "count": 79,
+      "sentence": "tment Direct Te recrui total tment Per mp Psycho 4 4 8 Throug M.A. 21 32 51515 logist h the in 5901 companymis Psycho 8626 sion logy EB18 direct prefer 6820 ly ably 780Eb Ed 2086 or 0 Befo diplom re a from regist"
+    }
+  ]
+}

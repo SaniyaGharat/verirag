@@ -1,0 +1,390 @@
+{
+  "step_b": {
+    "keep_number_breakdown": {
+      "digit": 15621,
+      "dot_digit": 4508,
+      "roman_numeral": 396,
+      "roman_iii": 29,
+      "roman_iv": 48,
+      "roman_ix": 6,
+      "roman_i": 246,
+      "roman_ii": 26,
+      "roman_x": 12,
+      "roman_vii": 7,
+      "roman_v": 16,
+      "roman_vi": 4,
+      "roman_viii": 2
+    },
+    "sample_25": [
+      {
+        "occ_id": 80012,
+        "doc_id": "2000_1516",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "and the group of respondent number I by removing appellant",
+        "right_10": "I came in full control of the Board. Next another"
+      },
+      {
+        "occ_id": 32180,
+        "doc_id": "2012_771",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "the suit I have neither any claim against the defendant",
+        "right_10": "I intend to continue the suit. Therefore, it is prayed"
+      },
+      {
+        "occ_id": 128314,
+        "doc_id": "1975_56",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "may be stated here that the Additional District Magistrate, respondent",
+        "right_10": "I as also the Rent Controller, respondent number 2 had"
+      },
+      {
+        "occ_id": 115459,
+        "doc_id": "1968_127",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "and out of the land thus to be bought, respondent",
+        "right_10": "I agreed to sell 22 plots of land to the"
+      },
+      {
+        "occ_id": 110755,
+        "doc_id": "1967_130",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "a document of identity with which a State may, but",
+        "right_10": "I necessarily does- require alien travellers within its territories to"
+      },
+      {
+        "occ_id": 80035,
+        "doc_id": "2000_1516",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "Strong submission tor the respondents was that a.ppointment of respondent",
+        "right_10": "I as Chairman was held to be valid by a"
+      },
+      {
+        "occ_id": 80005,
+        "doc_id": "2000_1516",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "requires our consideration is three fold i reftioval of appellant",
+        "right_10": "I and the appointment of respondent numberi as Chairman of"
+      },
+      {
+        "occ_id": 79992,
+        "doc_id": "2000_1516",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "of the meeting dated 4 July, 1997. According to respondent",
+        "right_10": "I, it was the prerogative of the Secretary to write"
+      },
+      {
+        "occ_id": 174715,
+        "doc_id": "1962_169",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "31 also does not validate the notice issued to respondent",
+        "right_10": "i after a lapse of eight years from the assessment"
+      },
+      {
+        "occ_id": 38332,
+        "doc_id": "2010_857",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "Kulshrestha, PW-5, in his injury report has stated that injury",
+        "right_10": "i is 2 cm x 2 cm muscle deep and"
+      },
+      {
+        "occ_id": 34160,
+        "doc_id": "2011_643",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "Saini, Defendant on A. Neither I have threatened the plaintiff",
+        "right_10": "I will dispossess him as I have already sold the"
+      },
+      {
+        "occ_id": 79996,
+        "doc_id": "2000_1516",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "as per the minutes prepared by the Secretary of respondent",
+        "right_10": "I and number as prepared by Mr. Satish Shall, were"
+      },
+      {
+        "occ_id": 108865,
+        "doc_id": "1971_229",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "and the appellant utilised that cheque. The appellant and accused",
+        "right_10": "I were, on these averments, alleged to have forged the"
+      },
+      {
+        "occ_id": 113503,
+        "doc_id": "1970_1",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "accused were also armed with the gun belonging to -accused",
+        "right_10": "I and this was fully known to the occupiers. In"
+      },
+      {
+        "occ_id": 185096,
+        "doc_id": "1956_27",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "answer to the question and that answer is that respondent",
+        "right_10": "i had no power in the exercise of his discretion"
+      },
+      {
+        "occ_id": 32955,
+        "doc_id": "2011_374",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "any disclosure statement. I did not get any wire recovered",
+        "right_10": "I was ever taken again to my house. We see"
+      },
+      {
+        "occ_id": 108850,
+        "doc_id": "1971_229",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "had started a business in milk in Ahmedabad and accused",
+        "right_10": "I used to help him in that business from time"
+      },
+      {
+        "occ_id": 174690,
+        "doc_id": "1962_169",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "a cases if the amount was less than rs. 100000/-.",
+        "right_10": "i come to sub-s. 3 and the second proviso thereto."
+      },
+      {
+        "occ_id": 108866,
+        "doc_id": "1971_229",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "question. The Magistrate also found prima facie evidence that accused",
+        "right_10": "I had committed an offence punishable under s. 467, I.P.C."
+      },
+      {
+        "occ_id": 185704,
+        "doc_id": "1967_245",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "the actual publication in the newspapers. so far as defendant",
+        "right_10": "i was concerned he supported his pleading in his written"
+      },
+      {
+        "occ_id": 137039,
+        "doc_id": "1985_308",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "however, feel that the appellants should have placed the respondent",
+        "right_10": "I in the seniority list above the temporary staff. The"
+      },
+      {
+        "occ_id": 185688,
+        "doc_id": "1967_245",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "not be allowed to stand in the way of defendant",
+        "right_10": "i basing his case on the correct interpretation of law."
+      },
+      {
+        "occ_id": 172562,
+        "doc_id": "1965_84",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "be granted. the plea made by the respondent that appellant",
+        "right_10": "i had been influenced by extraneous considerations was denied. on"
+      },
+      {
+        "occ_id": 175298,
+        "doc_id": "1981_399",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "the 1971 of the industrial tribunal masharashtra bombay in reference",
+        "right_10": "i.t. 123 of 1968 published in the masharashtra government gazette"
+      },
+      {
+        "occ_id": 14676,
+        "doc_id": "2017_760",
+        "roman": "i",
+        "rule": "KEEP_NUMBER",
+        "left_10": "no harm in meeting. HG I do not know brother,",
+        "right_10": "I fear in meeting with him. Kapoor Ok, then refuse"
+      }
+    ]
+  },
+  "step_c": {
+    "pair_counts": {
+      "the ... to": 14,
+      "in ... to": 14,
+      "case ... to": 9,
+      "a ... to": 7,
+      "case ... be": 4,
+      "a ... be": 3,
+      "in ... less": 2,
+      "a ... been": 1,
+      "the ... be": 1,
+      "any ... to": 1,
+      "in ... be": 1
+    },
+    "top10_pairs_examples": [
+      {
+        "pair": "the ... to",
+        "count": 14,
+        "examples": [
+          {
+            "doc_id": "2018_155",
+            "snippet": "number from which the calls had originated  and the B Number  the number to which the call had been made , the year, time and duration of"
+          },
+          {
+            "doc_id": "2015_480",
+            "snippet": "the number of tickets sold, their respective playing numbers, the number to tickets sold from each terminal etc. are all available in the"
+          },
+          {
+            "doc_id": "2013_644",
+            "snippet": "apply, all the employees probably did not apply restricting the number to only 302. In pursuance of the order dated 13.1.2005, 216 more"
+          }
+        ]
+      },
+      {
+        "pair": "in ... to",
+        "count": 14,
+        "examples": [
+          {
+            "doc_id": "2013_740",
+            "snippet": "nothing in the doctrine to prevent it being so regarded to do so in number to prefer form to substance, or substance to form. It is the task"
+          },
+          {
+            "doc_id": "2010_803",
+            "snippet": "the streets and the right of the pedestrians, who were larger in number to use the streets. The Court, therefore, held that if it was consistent"
+          },
+          {
+            "doc_id": "2010_1309",
+            "snippet": "the insects which are the prey of other insects will increase in number to a disproportionate extent, or the vegetation will increase to"
+          }
+        ]
+      },
+      {
+        "pair": "case ... to",
+        "count": 9,
+        "examples": [
+          {
+            "doc_id": "2020_177",
+            "snippet": "are hapless victims of the pace of life, and I prefer in this case number to go merely by the companymas used in clause  c  because, though"
+          },
+          {
+            "doc_id": "2012_563",
+            "snippet": "of Order XXXIX, it is always open to this Court in a given case number to follow the procedure contained thereunder Order XXXIX. The circumstances"
+          },
+          {
+            "doc_id": "2008_1005",
+            "snippet": "facts of this case, we were not inclined to further adjourn the case number to remit the case for fresh consideration by the High Court. It"
+          }
+        ]
+      },
+      {
+        "pair": "a ... to",
+        "count": 7,
+        "examples": [
+          {
+            "doc_id": "2016_534",
+            "snippet": "of the Ruias. On execution of this Agreement, Ruias agree  a  number to prosecute the following proceedings pending in the Bombay High"
+          },
+          {
+            "doc_id": "2016_534",
+            "snippet": "insofar as the suits pertain to MGG or its affiliates. etc.  a  number to prosecute the following proceedings pending in the Bombay High"
+          },
+          {
+            "doc_id": "1954_75",
+            "snippet": "direction or order on respondents Nos. I to 4 directing them,  a  number to levy any duty or fee for the purpose of raising revenues for"
+          }
+        ]
+      },
+      {
+        "pair": "case ... be",
+        "count": 4,
+        "examples": [
+          {
+            "doc_id": "1964_211",
+            "snippet": "that the penalty prescribed by s. 167 12A  may in any given case number be imposed against the ship on the ground that the contravention"
+          },
+          {
+            "doc_id": "1979_142",
+            "snippet": "the penalty prescribed by Section 167 12A  may in any given case number be imposed against the ship on the ground that the contravention"
+          },
+          {
+            "doc_id": "1977_176",
+            "snippet": "Constitution. Can the so called satisfaction of the President in such a case number be challenged on the ground that it is absurd or perverse or mala"
+          }
+        ]
+      },
+      {
+        "pair": "a ... be",
+        "count": 3,
+        "examples": [
+          {
+            "doc_id": "1968_245",
+            "snippet": "have been received by the accused without consideration or for a number be suggested that the relevant clause in s. 4 1   1  1960 2 S.C.R."
+          },
+          {
+            "doc_id": "1983_33",
+            "snippet": "be no procedure at all and the requirement of Art. 21 would A number be satisfied. In Sunil Batra v. Delhi Administration 1 , Krishna"
+          },
+          {
+            "doc_id": "1985_263",
+            "snippet": "the purview of s. 50 ii  a  of the act and therefore could a number be brought in the court of the district judge. although s. 50 of"
+          }
+        ]
+      },
+      {
+        "pair": "in ... less",
+        "count": 2,
+        "examples": [
+          {
+            "doc_id": "1974_159",
+            "snippet": "certificate of the College of Engineering, Guindy and having put in number less- than twenty years service as Supervisors and  iii  Draftsmen"
+          },
+          {
+            "doc_id": "1993_388",
+            "snippet": "stated earlier, he is an Ex-Air Force officer and he had put in number less 25 than 10 years and 10 months service as such officer. He was"
+          }
+        ]
+      },
+      {
+        "pair": "a ... been",
+        "count": 1,
+        "examples": [
+          {
+            "doc_id": "1954_84",
+            "snippet": "the date thereof It is urged that not only has article 465-A number been shown to have been in force at the time of the passing of the"
+          }
+        ]
+      },
+      {
+        "pair": "the ... be",
+        "count": 1,
+        "examples": [
+          {
+            "doc_id": "1958_95",
+            "snippet": "would not be subject to judicial review and not only would the number be amenable to the writs of certiorari or prohibition under Arts."
+          }
+        ]
+      },
+      {
+        "pair": "any ... to",
+        "count": 1,
+        "examples": [
+          {
+            "doc_id": "1991_50",
+            "snippet": "meete for that purpose, that are only proper unto a forest, any number to any other place. The earliest of the Forest Laws in England"
+          }
+        ]
+      }
+    ]
+  }
+}

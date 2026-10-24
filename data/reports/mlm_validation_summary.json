@@ -1,0 +1,75 @@
+{
+  "model_name": "law-ai/InLegalBERT",
+  "do_lower_case": true,
+  "candidates": {
+    "not": {
+      "tokens": [
+        "not"
+      ],
+      "token_id": 227,
+      "is_single": true
+    },
+    "nor": {
+      "tokens": [
+        "nor"
+      ],
+      "token_id": 696,
+      "is_single": true
+    },
+    "now": {
+      "tokens": [
+        "now"
+      ],
+      "token_id": 936,
+      "is_single": true
+    },
+    "non": {
+      "tokens": [
+        "non"
+      ],
+      "token_id": 370,
+      "is_single": true
+    },
+    "no": {
+      "tokens": [
+        "no"
+      ],
+      "token_id": 230,
+      "is_single": true
+    },
+    "number": {
+      "tokens": [
+        "number"
+      ],
+      "token_id": 394,
+      "is_single": true
+    }
+  },
+  "overall_accuracy": 0.8721666666666666,
+  "measured_throughput": 9.056497545629355,
+  "projected_hours_220k": 6.747764331985404,
+  "thresholds": {
+    "0.5": {
+      "coverage": 0.982,
+      "precision": 0.8837406653088934
+    },
+    "0.7": {
+      "coverage": 0.9528333333333333,
+      "precision": 0.899597691096729
+    },
+    "0.8": {
+      "coverage": 0.9333333333333333,
+      "precision": 0.9080357142857143
+    },
+    "0.9": {
+      "coverage": 0.9073333333333333,
+      "precision": 0.9142174871418075
+    },
+    "0.95": {
+      "coverage": 0.879,
+      "precision": 0.9186575654152446
+    }
+  },
+  "agreement_150": 0.98,
+  "disagreements_count": 3
+}
