@@ -1,0 +1,246 @@
+{
+  "Baseline_ROUGE_L": {
+    "metrics": {
+      "accuracy": 0.3057,
+      "macro_f1": 0.1872,
+      "macro_precision": 0.289,
+      "macro_recall": 0.3527,
+      "false_supported_rate": 0.0242,
+      "contradiction_recall": 0.0,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.5714,
+          "recall": 0.058,
+          "f1": 0.1053,
+          "support": 69
+        },
+        "CONTRADICTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 69
+        },
+        "UNSUPPORTED": {
+          "precision": 0.2957,
+          "recall": 1.0,
+          "f1": 0.4564,
+          "support": 55
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "SUPPORTED",
+          "CONTRADICTED",
+          "UNSUPPORTED"
+        ],
+        "matrix": [
+          [
+            4,
+            0,
+            65
+          ],
+          [
+            3,
+            0,
+            66
+          ],
+          [
+            0,
+            0,
+            55
+          ]
+        ]
+      },
+      "sample_counts": {
+        "total": 193,
+        "true_supported": 69,
+        "true_contradicted": 69,
+        "true_unsupported": 55
+      }
+    },
+    "runtime_sec": 1.33
+  },
+  "Baseline_BM25": {
+    "metrics": {
+      "accuracy": 0.285,
+      "macro_f1": 0.1478,
+      "macro_precision": 0.095,
+      "macro_recall": 0.3333,
+      "false_supported_rate": 0.0,
+      "contradiction_recall": 0.0,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 69
+        },
+        "CONTRADICTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 69
+        },
+        "UNSUPPORTED": {
+          "precision": 0.285,
+          "recall": 1.0,
+          "f1": 0.4435,
+          "support": 55
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "SUPPORTED",
+          "CONTRADICTED",
+          "UNSUPPORTED"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            69
+          ],
+          [
+            0,
+            0,
+            69
+          ],
+          [
+            0,
+            0,
+            55
+          ]
+        ]
+      },
+      "sample_counts": {
+        "total": 193,
+        "true_supported": 69,
+        "true_contradicted": 69,
+        "true_unsupported": 55
+      }
+    },
+    "runtime_sec": 0.13
+  },
+  "Baseline_Cosine_Embedding": {
+    "metrics": {
+      "accuracy": 0.4767,
+      "macro_f1": 0.3849,
+      "macro_precision": 0.3303,
+      "macro_recall": 0.5108,
+      "false_supported_rate": 0.2419,
+      "contradiction_recall": 0.0,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.5588,
+          "recall": 0.5507,
+          "f1": 0.5547,
+          "support": 69
+        },
+        "CONTRADICTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 69
+        },
+        "UNSUPPORTED": {
+          "precision": 0.432,
+          "recall": 0.9818,
+          "f1": 0.6,
+          "support": 55
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "SUPPORTED",
+          "CONTRADICTED",
+          "UNSUPPORTED"
+        ],
+        "matrix": [
+          [
+            38,
+            0,
+            31
+          ],
+          [
+            29,
+            0,
+            40
+          ],
+          [
+            1,
+            0,
+            54
+          ]
+        ]
+      },
+      "sample_counts": {
+        "total": 193,
+        "true_supported": 69,
+        "true_contradicted": 69,
+        "true_unsupported": 55
+      }
+    },
+    "runtime_sec": 12.14
+  },
+  "VeriRAG_CrossEncoder_NLI": {
+    "metrics": {
+      "accuracy": 0.5389,
+      "macro_f1": 0.5343,
+      "macro_precision": 0.6172,
+      "macro_recall": 0.5504,
+      "false_supported_rate": 0.0403,
+      "contradiction_recall": 0.6087,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.8214,
+          "recall": 0.3333,
+          "f1": 0.4742,
+          "support": 69
+        },
+        "CONTRADICTED": {
+          "precision": 0.6364,
+          "recall": 0.6087,
+          "f1": 0.6222,
+          "support": 69
+        },
+        "UNSUPPORTED": {
+          "precision": 0.3939,
+          "recall": 0.7091,
+          "f1": 0.5065,
+          "support": 55
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "SUPPORTED",
+          "CONTRADICTED",
+          "UNSUPPORTED"
+        ],
+        "matrix": [
+          [
+            23,
+            8,
+            38
+          ],
+          [
+            5,
+            42,
+            22
+          ],
+          [
+            0,
+            16,
+            39
+          ]
+        ]
+      },
+      "sample_counts": {
+        "total": 193,
+        "true_supported": 69,
+        "true_contradicted": 69,
+        "true_unsupported": 55
+      }
+    },
+    "runtime_sec": 164.48
+  }
+}

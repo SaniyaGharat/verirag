@@ -24,7 +24,17 @@ from tqdm import tqdm
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-INPUT_PARQUET = PROJECT_ROOT / "data" / "processed" / "ildc_cleaned_v4.parquet"
+INPUT_DEDUP_PARQUET = PROJECT_ROOT / "data" / "processed" / "ildc_v4_dedup.parquet"
+INPUT_CLEANED_PARQUET = PROJECT_ROOT / "data" / "processed" / "ildc_cleaned_v4.parquet"
+
+# Prefer sys.argv[1], then dedup file if it exists, otherwise full cleaned v4
+if len(sys.argv) > 1 and Path(sys.argv[1]).exists():
+    INPUT_PARQUET = Path(sys.argv[1])
+elif INPUT_DEDUP_PARQUET.exists():
+    INPUT_PARQUET = INPUT_DEDUP_PARQUET
+else:
+    INPUT_PARQUET = INPUT_CLEANED_PARQUET
+
 OUTPUT_PARQUET = PROJECT_ROOT / "data" / "processed" / "chunks.parquet"
 
 # Common legal and standard abbreviations to avoid false sentence breaks
@@ -260,7 +270,7 @@ def main():
         print(f"      Loaded {total_docs:,} judgments into memory in {time.time() - start_time:.2f}s.")
 
         # 2. Parallel chunking
-        num_workers = min(8, mp.cpu_count())
+        num_workers = min(4, mp.cpu_count())
         batch_size = 500
         print(f"[2/5] Chunking {total_docs:,} documents using {num_workers} parallel workers...")
 

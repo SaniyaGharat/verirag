@@ -1,0 +1,234 @@
+{
+  "1_Full_System_NLI_Plus_LegalChecks": {
+    "accuracy": 0.5285,
+    "macro_f1": 0.5247,
+    "macro_precision": 0.6068,
+    "macro_recall": 0.5383,
+    "false_supported_rate": 0.0403,
+    "contradiction_recall": 0.6087,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.8214,
+        "recall": 0.3333,
+        "f1": 0.4742,
+        "support": 69
+      },
+      "CONTRADICTED": {
+        "precision": 0.6176,
+        "recall": 0.6087,
+        "f1": 0.6131,
+        "support": 69
+      },
+      "UNSUPPORTED": {
+        "precision": 0.3814,
+        "recall": 0.6727,
+        "f1": 0.4868,
+        "support": 55
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "SUPPORTED",
+        "CONTRADICTED",
+        "UNSUPPORTED"
+      ],
+      "matrix": [
+        [
+          23,
+          8,
+          38
+        ],
+        [
+          5,
+          42,
+          22
+        ],
+        [
+          0,
+          18,
+          37
+        ]
+      ]
+    },
+    "sample_counts": {
+      "total": 193,
+      "true_supported": 69,
+      "true_contradicted": 69,
+      "true_unsupported": 55
+    }
+  },
+  "2_No_Legal_Checks_NLI_Only": {
+    "accuracy": 0.5389,
+    "macro_f1": 0.5343,
+    "macro_precision": 0.6172,
+    "macro_recall": 0.5504,
+    "false_supported_rate": 0.0403,
+    "contradiction_recall": 0.6087,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.8214,
+        "recall": 0.3333,
+        "f1": 0.4742,
+        "support": 69
+      },
+      "CONTRADICTED": {
+        "precision": 0.6364,
+        "recall": 0.6087,
+        "f1": 0.6222,
+        "support": 69
+      },
+      "UNSUPPORTED": {
+        "precision": 0.3939,
+        "recall": 0.7091,
+        "f1": 0.5065,
+        "support": 55
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "SUPPORTED",
+        "CONTRADICTED",
+        "UNSUPPORTED"
+      ],
+      "matrix": [
+        [
+          23,
+          8,
+          38
+        ],
+        [
+          5,
+          42,
+          22
+        ],
+        [
+          0,
+          16,
+          39
+        ]
+      ]
+    },
+    "sample_counts": {
+      "total": 193,
+      "true_supported": 69,
+      "true_contradicted": 69,
+      "true_unsupported": 55
+    }
+  },
+  "3_No_NLI_ROUGE_Plus_LegalChecks": {
+    "accuracy": 0.3212,
+    "macro_f1": 0.2358,
+    "macro_precision": 0.5106,
+    "macro_recall": 0.3635,
+    "false_supported_rate": 0.0242,
+    "contradiction_recall": 0.087,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.5714,
+        "recall": 0.058,
+        "f1": 0.1053,
+        "support": 69
+      },
+      "CONTRADICTED": {
+        "precision": 0.6667,
+        "recall": 0.087,
+        "f1": 0.1538,
+        "support": 69
+      },
+      "UNSUPPORTED": {
+        "precision": 0.2938,
+        "recall": 0.9455,
+        "f1": 0.4483,
+        "support": 55
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "SUPPORTED",
+        "CONTRADICTED",
+        "UNSUPPORTED"
+      ],
+      "matrix": [
+        [
+          4,
+          0,
+          65
+        ],
+        [
+          3,
+          6,
+          60
+        ],
+        [
+          0,
+          3,
+          52
+        ]
+      ]
+    },
+    "sample_counts": {
+      "total": 193,
+      "true_supported": 69,
+      "true_contradicted": 69,
+      "true_unsupported": 55
+    }
+  },
+  "4_Lexical_Only_ROUGE": {
+    "accuracy": 0.3057,
+    "macro_f1": 0.1872,
+    "macro_precision": 0.289,
+    "macro_recall": 0.3527,
+    "false_supported_rate": 0.0242,
+    "contradiction_recall": 0.0,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.5714,
+        "recall": 0.058,
+        "f1": 0.1053,
+        "support": 69
+      },
+      "CONTRADICTED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 69
+      },
+      "UNSUPPORTED": {
+        "precision": 0.2957,
+        "recall": 1.0,
+        "f1": 0.4564,
+        "support": 55
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "SUPPORTED",
+        "CONTRADICTED",
+        "UNSUPPORTED"
+      ],
+      "matrix": [
+        [
+          4,
+          0,
+          65
+        ],
+        [
+          3,
+          0,
+          66
+        ],
+        [
+          0,
+          0,
+          55
+        ]
+      ]
+    },
+    "sample_counts": {
+      "total": 193,
+      "true_supported": 69,
+      "true_contradicted": 69,
+      "true_unsupported": 55
+    }
+  }
+}

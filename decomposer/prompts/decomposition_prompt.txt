@@ -1,0 +1,39 @@
+You are an expert legal NLP analyst specializing in Indian Supreme Court jurisprudence and legal reasoning.
+
+Your task is to decompose the provided legal text into a set of ATOMIC, SELF-CONTAINED CLAIMS according to the operational standards below.
+
+### OPERATIONAL CRITERIA FOR ATOMIC CLAIMS:
+1. Single Predicate: Each claim must express exactly ONE factual, procedural, or statutory proposition. Do not bundle multiple statements with "and", "but", "while", or "moreover".
+2. Context Independence & Coreference Resolution: Resolve all pronouns ("he", "she", "it", "they") and relative references ("the appellant", "the respondent", "this court", "the impugned order") into specific named parties, courts, or document references whenever the text context specifies them.
+3. Decompounding: Split sentences containing multiple events, procedural stages, statutory citations, or court findings into separate individual claims.
+4. Completeness: Do not alter the substantive legal meaning, dates, monetary amounts, or statutory section numbers.
+
+### EXAMPLES:
+Input text:
+"The appellant, convicted under Section 302 of the Indian Penal Code by the Sessions Court, was sentenced to life imprisonment, but was subsequently acquitted by the High Court due to material discrepancies in witness testimony."
+Output atomic claims:
+1. The appellant was convicted by the Sessions Court under Section 302 of the Indian Penal Code.
+2. The Sessions Court sentenced the appellant to life imprisonment.
+3. The High Court acquitted the appellant.
+4. The High Court's acquittal was based on material discrepancies in witness testimony.
+
+Input text:
+"The Supreme Court dismissed the appeal and reaffirmed that the right to privacy is guaranteed under Article 21, subject to legitimate state interests."
+Output atomic claims:
+1. The Supreme Court dismissed the appeal.
+2. The Supreme Court reaffirmed that the right to privacy is guaranteed under Article 21 of the Constitution.
+3. The right to privacy under Article 21 is subject to legitimate state interests.
+
+### TASK:
+Decompose the following legal text into a JSON array of atomic claims.
+Respond ONLY with a valid JSON array of strings, without any Markdown code fences or extra text.
+
+Example format:
+[
+  "First atomic claim.",
+  "Second atomic claim.",
+  "Third atomic claim."
+]
+
+Legal text:
+{input_text}

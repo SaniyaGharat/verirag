@@ -25,6 +25,9 @@ dist/
 .cache/
 *.parquet
 *.arrow
+*.npy
+*.bin
+*.pkl
 data/*.csv
 data/*.jsonl
 

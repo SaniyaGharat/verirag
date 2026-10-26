@@ -1,34 +1,48 @@
-# VeriRAG Configuration Placeholders
+# VeriRAG Configuration
+# Indian Legal Documents Corpus (ILDC) Verification Pipeline
+
+corpus:
+  name: "jayadityagandham9/ILDC_35k_COMPLETE"
+  eval_name: "anuragiiser/ILDC_expert"
+  cleaned_v4_path: "data/processed/ildc_cleaned_v4.parquet"
+  cleaned_dedup_path: "data/processed/ildc_v4_dedup.parquet"
+  chunks_path: "data/processed/chunks.parquet"
+  use_dedup: true
 
 retriever:
-  embedding_model: "TODO: e.g. sentence-transformers/all-mpnet-base-v2 or law-ai/InLegalBERT"
-  chunk_size: "TODO: e.g. 512"
-  chunk_overlap: "TODO: e.g. 64"
-  top_k: "TODO: e.g. 5"
-  index_type: "TODO: e.g. faiss-flat-ip / faiss-hnsw"
-  distance_metric: "TODO: e.g. cosine / inner_product"
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  chunk_size: 512
+  chunk_overlap: 64
+  top_k: 5
+  index_type: "faiss-flat-ip"
+  distance_metric: "inner_product"
+  index_path: "data/processed/faiss_index.bin"
+  metadata_path: "data/processed/chunk_metadata.parquet"
+  bm25_index_path: "data/processed/bm25_index.pkl"
 
 generator:
-  llm_model: "TODO: e.g. claude-3-5-sonnet-20241022 or gpt-4o"
-  temperature: "TODO: e.g. 0.2"
-  max_tokens: "TODO: e.g. 1024"
-  prompt_template: "TODO: path or template string for legal judgment QA"
+  llm_model: "claude-3-5-sonnet-20241022"
+  temperature: 0.2
+  max_tokens: 1024
+  prompt_template: "generator/prompts/qa_prompt.txt"
 
 decomposer:
-  method: "TODO: rule-based / llm-prompted"
-  llm_model: "TODO: e.g. claude-3-5-sonnet or gpt-4o-mini"
-  granularity: "TODO: sentence-level vs. sub-clause atomic proposition"
-  prompt_template: "TODO: path to atomic decomposition prompt"
+  method: "llm-prompted"
+  fallback_method: "rule-based"
+  llm_model: "claude-3-5-sonnet-20241022"
+  granularity: "atomic_proposition"
+  prompt_template: "decomposer/prompts/decomposition_prompt.txt"
 
 verifier:
-  model_type: "TODO: nli-cross-encoder / llm-judge"
-  model_name: "TODO: e.g. cross-encoder/nli-deberta-v3-large or claude-3-5-sonnet"
-  threshold_supported: "TODO: e.g. 0.7"
-  threshold_contradicted: "TODO: e.g. 0.7"
-  temperature: "TODO: e.g. 0.0"
+  model_type: "nli-cross-encoder"
+  model_name: "cross-encoder/nli-deberta-v3-base"
+  threshold_supported: 0.70
+  threshold_contradicted: 0.70
+  temperature: 0.0
+  enable_legal_checks: true
 
 aggregator:
-  strategy: "TODO: weighted_average / minimum_support / all_supported"
-  citation_linking: "TODO: strict / fuzzy"
-  uncertainty_handling: "TODO: flag_unsupported /abstain"
-  overall_threshold: "TODO: e.g. 0.8"
+  strategy: "weighted_average"
+  citation_linking: "strict"
+  uncertainty_handling: "flag_unsupported"
+  overall_threshold: 0.70

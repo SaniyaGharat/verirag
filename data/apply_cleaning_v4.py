@@ -20,6 +20,8 @@ from pathlib import Path
 import multiprocessing as mp
 from collections import Counter
 import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
 from datasets import load_dataset
 from tqdm import tqdm
 
@@ -169,21 +171,29 @@ def main():
 
     start_time = time.time()
 
+    import argparse
+    parser = argparse.ArgumentParser(description="Clean ILDC corpus with v4 reconstruction engine.")
+    parser.add_argument("--limit", type=int, default=None, help="Optional limit on number of documents to process")
+    args = parser.parse_args()
+
     # 1. Load raw dataset
     print("[1/7] Loading full ILDC train split from Hugging Face cache...")
     ds = load_dataset("jayadityagandham9/ILDC_35k_COMPLETE", split="train")
-    total_docs = len(ds)
+    total_docs = min(args.limit, len(ds)) if args.limit is not None else len(ds)
     print(f"      Loaded {total_docs:,} judgments into memory.")
 
     # 2. Distribute batches for multiprocessing
-    num_cpus = 6
-    batch_size = 300
+    num_cpus = min(4, os.cpu_count() or 4)
+    batch_size = 100
     print(f"[2/7] Preparing parallel processing with {num_cpus} workers (batch size: {batch_size})...")
 
-    raw_data = [(ds[i]["id"], ds[i]["text"], ds[i]["label"]) for i in range(total_docs)]
-    batches = [raw_data[i:i + batch_size] for i in range(0, total_docs, batch_size)]
+    num_batches = (total_docs + batch_size - 1) // batch_size
 
-    all_cleaned_rows = []
+    def batch_generator():
+        for i in range(0, total_docs, batch_size):
+            end = min(i + batch_size, total_docs)
+            yield [(ds[j]["id"], ds[j]["text"], ds[j]["label"]) for j in range(i, end)]
+
     total_reconstructed_company = Counter()
     total_reconstructed_number = Counter()
     total_space_split_company = Counter()
@@ -195,13 +205,35 @@ def main():
     corpus_legit_after = 0
     corpus_total_tokens = 0
 
-    # 3. Clean corpus
-    print("[3/7] Cleaning text using v4 reconstruction engine...")
+    # 3. Clean corpus and stream directly to ParquetWriter
+    print(f"[3/7] Cleaning text and streaming directly to {OUTPUT_PARQUET_V4}...")
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    temp_output = OUTPUT_PARQUET_V4.with_suffix(".tmp.parquet")
+
+    schema = pa.schema([
+        ("id", pa.string()),
+        ("text_cleaned", pa.string()),
+        ("text_raw_length", pa.int64()),
+        ("text_cleaned_length", pa.int64()),
+        ("label", pa.int64()),
+    ])
+    writer = pq.ParquetWriter(temp_output, schema=schema, compression="snappy")
+
     with mp.Pool(processes=num_cpus) as pool:
-        for batch_res in tqdm(pool.imap(process_batch_v4, batches), total=len(batches), desc="Processing Batches"):
+        for batch_res in tqdm(pool.imap(process_batch_v4, batch_generator()), total=num_batches, desc="Processing Batches"):
             (rows, r_comp, r_num, s_comp, s_num, u_comp, u_num,
              low_conf, leg_b, leg_a, tok_cnt) = batch_res
-            all_cleaned_rows.extend(rows)
+
+            batch_table = pa.Table.from_pydict({
+                "id": [r["id"] for r in rows],
+                "text_cleaned": [r["text_cleaned"] for r in rows],
+                "text_raw_length": [r["text_raw_length"] for r in rows],
+                "text_cleaned_length": [r["text_cleaned_length"] for r in rows],
+                "label": [r["label"] for r in rows]
+            }, schema=schema)
+            writer.write_table(batch_table)
+            del rows, batch_table
+
             total_reconstructed_company.update(r_comp)
             total_reconstructed_number.update(r_num)
             total_space_split_company.update(s_comp)
@@ -213,24 +245,23 @@ def main():
             corpus_legit_after += leg_a
             corpus_total_tokens += tok_cnt
 
+    writer.close()
+    if OUTPUT_PARQUET_V4.exists():
+        OUTPUT_PARQUET_V4.unlink()
+    temp_output.rename(OUTPUT_PARQUET_V4)
+
     clean_duration = time.time() - start_time
-    print(f"      Completed text cleaning in {clean_duration:.1f}s ({total_docs / clean_duration:.1f} docs/sec).")
-
-    # 4. Save to Parquet V4
-    print(f"[4/7] Saving final cleaned corpus to {OUTPUT_PARQUET_V4}...")
-    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
-    df_v4 = pd.DataFrame(all_cleaned_rows)
-    df_v4.to_parquet(OUTPUT_PARQUET_V4, index=False, engine="pyarrow", compression="snappy")
     file_size_mb = OUTPUT_PARQUET_V4.stat().st_size / (1024 * 1024)
-    print(f"      Saved {len(df_v4):,} rows ({file_size_mb:.2f} MB on disk).")
+    print(f"      Completed text cleaning in {clean_duration:.1f}s ({total_docs / clean_duration:.1f} docs/sec).")
+    print(f"      Saved {total_docs:,} rows to {OUTPUT_PARQUET_V4} ({file_size_mb:.2f} MB on disk).")
 
-    # 5. Round-trip QA check
-    print("[5/7] Verifying Parquet round-trip integrity...")
-    df_read = pd.read_parquet(OUTPUT_PARQUET_V4)
-    assert len(df_read) == total_docs, "Row count mismatch in read verification!"
+    # 4. Round-trip QA check
+    print("[4/7] Verifying Parquet round-trip integrity...")
+    pf = pq.ParquetFile(OUTPUT_PARQUET_V4)
+    assert pf.metadata.num_rows == total_docs, f"Row count mismatch! {pf.metadata.num_rows} vs {total_docs}"
 
-    # 6. Delete v1 and v2 to save disk space
-    print("[6/7] Managing checkpoints: deleting v1 and v2, keeping v3 and v4...")
+    # 5. Delete v1 and v2 to save disk space
+    print("[5/7] Managing checkpoints: deleting v1 and v2, keeping v3 and v4...")
     if OUTPUT_PARQUET_V1.exists():
         OUTPUT_PARQUET_V1.unlink()
         print(f"      Deleted {OUTPUT_PARQUET_V1.name}")
@@ -238,31 +269,31 @@ def main():
         OUTPUT_PARQUET_V2.unlink()
         print(f"      Deleted {OUTPUT_PARQUET_V2.name}")
 
-    # 7. Audit & Residual scans on V4
-    print("[7/7] Executing Part 1 and Part 2 comparative audits on V4...")
+    # 6. Audit & Residual scans on V4 (streamed to avoid loading entire corpus into RAM)
+    print("[6/7] Executing Part 1 and Part 2 comparative audits on V4...")
 
     company_v4_counts = Counter()
-    for clean_text_str in df_read["text_cleaned"]:
-        matches = re.findall(r'\bcompany[a-z]+\b', clean_text_str, flags=re.I)
-        for w in matches:
-            w_lower = w.lower()
-            if w_lower not in LEGIT_COMPANY_SET:
-                company_v4_counts[w_lower] += 1
+    total_nonstandard_number_v4 = 0
+
+    for batch in pf.iter_batches(batch_size=1000, columns=["text_cleaned"]):
+        for clean_text_str in batch.column(0).to_pylist():
+            matches = re.findall(r'\bcompany[a-z]+\b', clean_text_str, flags=re.I)
+            for w in matches:
+                w_lower = w.lower()
+                if w_lower not in LEGIT_COMPANY_SET:
+                    company_v4_counts[w_lower] += 1
+
+            for m in re.finditer(r'\b(number)\b', clean_text_str, flags=re.I):
+                before_text = clean_text_str[max(0, m.start() - 30):m.start()]
+                after_text = clean_text_str[m.end():min(len(clean_text_str), m.end() + 25)]
+                if re.match(r'^\s+of\b', after_text, flags=re.I):
+                    continue
+                if STANDALONE_NUMBER_EXCLUDE_BEFORE.search(before_text):
+                    continue
+                total_nonstandard_number_v4 += 1
 
     total_non_legit_comp_v4 = sum(company_v4_counts.values())
     unique_non_legit_comp_v4 = len(company_v4_counts)
-
-    total_nonstandard_number_v4 = 0
-    for idx in range(len(df_read)):
-        c_text = df_read.iloc[idx]["text_cleaned"]
-        for m in re.finditer(r'\b(number)\b', c_text, flags=re.I):
-            before_text = c_text[max(0, m.start() - 30):m.start()]
-            after_text = c_text[m.end():min(len(c_text), m.end() + 25)]
-            if re.match(r'^\s+of\b', after_text, flags=re.I):
-                continue
-            if STANDALONE_NUMBER_EXCLUDE_BEFORE.search(before_text):
-                continue
-            total_nonstandard_number_v4 += 1
 
     # Output detailed summary to stdout
     print("\n" + "=" * 80)

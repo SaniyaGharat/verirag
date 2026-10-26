@@ -1,0 +1,27 @@
+{
+  "gold_evidence": {
+    "SUPPORTED": 0.3333,
+    "CONTRADICTED": 0.1159,
+    "UNSUPPORTED": 0.5507
+  },
+  "random_unrelated_evidence": {
+    "SUPPORTED": 0.0435,
+    "CONTRADICTED": 0.3333,
+    "UNSUPPORTED": 0.6232
+  },
+  "truncated_evidence": {
+    "SUPPORTED": 0.1014,
+    "CONTRADICTED": 0.1304,
+    "UNSUPPORTED": 0.7681
+  },
+  "empty_evidence": {
+    "SUPPORTED": 0.0,
+    "CONTRADICTED": 0.087,
+    "UNSUPPORTED": 0.913
+  },
+  "safety_check": {
+    "random_false_supported_rate": 0.0435,
+    "empty_false_supported_rate": 0.0,
+    "passes_safety": true
+  }
+}

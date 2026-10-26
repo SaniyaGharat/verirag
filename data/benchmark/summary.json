@@ -1,0 +1,62 @@
+{
+  "benchmark_name": "VeriRAG-Bench",
+  "description": "Gold-standard legal claim verification benchmark for Indian court judgments",
+  "total_examples": 300,
+  "zero_leakage_verified": true,
+  "splits": {
+    "full": {
+      "total": 300,
+      "labels": {
+        "SUP": 100,
+        "CON": 100,
+        "NEI": 100
+      },
+      "types": {
+        "procedural_history": 45,
+        "legal_principle": 44,
+        "date_timeline": 48,
+        "fabricated": 10,
+        "party_identification": 43,
+        "legal_citation": 58,
+        "factual_holding": 52
+      },
+      "distinct_docs": 79
+    },
+    "dev": {
+      "total": 107,
+      "labels": {
+        "SUP": 31,
+        "CON": 31,
+        "NEI": 45
+      },
+      "types": {
+        "procedural_history": 15,
+        "legal_principle": 16,
+        "date_timeline": 20,
+        "fabricated": 2,
+        "party_identification": 16,
+        "legal_citation": 23,
+        "factual_holding": 15
+      },
+      "distinct_docs": 27
+    },
+    "test": {
+      "total": 193,
+      "labels": {
+        "SUP": 69,
+        "CON": 69,
+        "NEI": 55
+      },
+      "types": {
+        "procedural_history": 30,
+        "legal_principle": 28,
+        "date_timeline": 28,
+        "fabricated": 8,
+        "party_identification": 27,
+        "legal_citation": 35,
+        "factual_holding": 37
+      },
+      "distinct_docs": 52
+    }
+  }
+}

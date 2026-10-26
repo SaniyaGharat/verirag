@@ -1,0 +1,41 @@
+family,original,mode,winner,winner_freq,competing,competing_freq,candidates,count
+company,companydoned,single_word,condoned,4.37e-07,cordoned,2.69e-07,"condoned, cordoned",17
+company,companyabit,space_insertion,co abit,3.63e-07,com abit,3.63e-07,"co abit, com abit, con abit, cor abit, col abit, cou abit, cov abit, cog abit, cop abit, cos abit",7
+number,numberillegality,space_insertion,no illegality,4.57e-07,not illegality,4.57e-07,"no illegality, not illegality, nor illegality, non illegality, nom illegality, nov illegality",4
+number,numbercogent,space_insertion,no cogent,5.13e-07,not cogent,5.13e-07,"no cogent, not cogent, nor cogent, non cogent, nom cogent, nov cogent",3
+number,numberprivity,space_insertion,no privity,4.57e-08,not privity,4.57e-08,"no privity, not privity, nor privity, non privity, nom privity, nov privity",3
+number,numbermala,space_insertion,no mala,7.41e-07,not mala,7.41e-07,"no mala, not mala, nor mala, non mala, nom mala, nov mala",2
+number,numberapplicability,space_insertion,no applicability,8.13e-07,not applicability,8.13e-07,"no applicability, not applicability, nor applicability, non applicability, nom applicability, nov applicability",2
+number,numberfulfilment,space_insertion,no fulfilment,9.33e-07,not fulfilment,9.33e-07,"no fulfilment, not fulfilment, nor fulfilment, non fulfilment, nom fulfilment, nov fulfilment",2
+number,numberbailable,space_insertion,no bailable,7.08e-08,not bailable,7.08e-08,"no bailable, not bailable, nor bailable, non bailable, nom bailable, nov bailable",2
+number,numberintelligible,space_insertion,no intelligible,5.89e-07,not intelligible,5.89e-07,"no intelligible, not intelligible, nor intelligible, non intelligible, nom intelligible, nov intelligible",2
+number,numbercorroboration,space_insertion,no corroboration,5.01e-07,not corroboration,5.01e-07,"no corroboration, not corroboration, nor corroboration, non corroboration, nom corroboration, nov corroboration",2
+company,companypes,single_word,copes,2.88e-07,coupes,2e-07,"copes, coupes",2
+number,numberanathema,space_insertion,no anathema,6.17e-07,not anathema,6.17e-07,"no anathema, not anathema, nor anathema, non anathema, nom anathema, nov anathema",1
+number,numberencroachment,space_insertion,no encroachment,7.24e-07,not encroachment,7.24e-07,"no encroachment, not encroachment, nor encroachment, non encroachment, nom encroachment, nov encroachment",1
+number,numberevidentiary,space_insertion,no evidentiary,3.98e-07,not evidentiary,3.98e-07,"no evidentiary, not evidentiary, nor evidentiary, non evidentiary, nom evidentiary, nov evidentiary",1
+number,numberocular,space_insertion,no ocular,8.71e-07,not ocular,8.71e-07,"no ocular, not ocular, nor ocular, non ocular, nom ocular, nov ocular",1
+number,numberprohibitory,space_insertion,no prohibitory,4.79e-08,not prohibitory,4.79e-08,"no prohibitory, not prohibitory, nor prohibitory, non prohibitory, nom prohibitory, nov prohibitory",1
+number,numberimputation,space_insertion,no imputation,1.95e-07,not imputation,1.95e-07,"no imputation, not imputation, nor imputation, non imputation, nom imputation, nov imputation",1
+number,numberextenuating,space_insertion,no extenuating,3.63e-07,not extenuating,3.63e-07,"no extenuating, not extenuating, nor extenuating, non extenuating, nom extenuating, nov extenuating",1
+number,numbergainsay,space_insertion,no gainsay,3.47e-08,not gainsay,3.47e-08,"no gainsay, not gainsay, nor gainsay, non gainsay, nom gainsay, nov gainsay",1
+number,numberSagar,space_insertion,no sagar,3.72e-07,not sagar,3.72e-07,"no sagar, not sagar, nor sagar, non sagar, nom sagar, nov sagar",1
+number,numberinfirmity,space_insertion,no infirmity,2.09e-07,not infirmity,2.09e-07,"no infirmity, not infirmity, nor infirmity, non infirmity, nom infirmity, nov infirmity",1
+number,numberjurisdictional,space_insertion,no jurisdictional,5.89e-07,not jurisdictional,5.89e-07,"no jurisdictional, not jurisdictional, nor jurisdictional, non jurisdictional, nom jurisdictional, nov jurisdictional",1
+number,numberouster,space_insertion,no ouster,5.25e-07,not ouster,5.25e-07,"no ouster, not ouster, nor ouster, non ouster, nom ouster, nov ouster",1
+number,numberjoinder,space_insertion,no joinder,3.63e-08,not joinder,3.63e-08,"no joinder, not joinder, nor joinder, non joinder, nom joinder, nov joinder",1
+number,numberfollowup,space_insertion,no followup,7.41e-07,not followup,7.41e-07,"no followup, not followup, nor followup, non followup, nom followup, nov followup",1
+number,numberinordinate,space_insertion,no inordinate,4.57e-07,not inordinate,4.57e-07,"no inordinate, not inordinate, nor inordinate, non inordinate, nom inordinate, nov inordinate",1
+number,numbercriminality,space_insertion,no criminality,9.77e-07,not criminality,9.77e-07,"no criminality, not criminality, nor criminality, non criminality, nom criminality, nov criminality",1
+number,numberious,space_insertion,no ious,1.58e-07,not ious,1.58e-07,"no ious, not ious, nor ious, non ious, nom ious, nov ious",1
+number,numbercategorical,space_insertion,no categorical,7.59e-07,not categorical,7.59e-07,"no categorical, not categorical, nor categorical, non categorical, nom categorical, nov categorical",1
+number,numberadjudication,space_insertion,no adjudication,5.75e-07,not adjudication,5.75e-07,"no adjudication, not adjudication, nor adjudication, non adjudication, nom adjudication, nov adjudication",1
+number,numbercontentions,space_insertion,no contentions,1.82e-07,not contentions,1.82e-07,"no contentions, not contentions, nor contentions, non contentions, nom contentions, nov contentions",1
+number,numberpleadings,space_insertion,no pleadings,2.51e-07,not pleadings,2.51e-07,"no pleadings, not pleadings, nor pleadings, non pleadings, nom pleadings, nov pleadings",1
+company,companysharers,space_insertion,co sharers,1.1e-07,com sharers,1.1e-07,"co sharers, com sharers, con sharers, cor sharers, col sharers, cou sharers, cov sharers, cog sharers, cop sharers, cos sharers",1
+number,numbercavil,space_insertion,no cavil,1.1e-07,not cavil,1.1e-07,"no cavil, not cavil, nor cavil, non cavil, nom cavil, nov cavil",1
+number,numberSRA,space_insertion,no sra,3.89e-07,not sra,3.89e-07,"no sra, not sra, nor sra, non sra, nom sra, nov sra",1
+number,numberinsurable,space_insertion,no insurable,1.05e-07,not insurable,1.05e-07,"no insurable, not insurable, nor insurable, non insurable, nom insurable, nov insurable",1
+number,numbergradation,space_insertion,no gradation,2.51e-07,not gradation,2.51e-07,"no gradation, not gradation, nor gradation, non gradation, nom gradation, nov gradation",1
+number,numberauthenticated,space_insertion,no authenticated,8.51e-07,not authenticated,8.51e-07,"no authenticated, not authenticated, nor authenticated, non authenticated, nom authenticated, nov authenticated",1
+company,companyhabited,space_insertion,co habited,1.62e-08,com habited,1.62e-08,"co habited, com habited, con habited, cor habited, col habited, cou habited, cov habited, cog habited, cop habited, cos habited",1
