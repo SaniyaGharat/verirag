@@ -116,16 +116,16 @@ def format_verified_report(
 
     # Status badge
     if score >= 0.85:
-        badge = "🟢 HIGH TRUST"
+        badge = "HIGH TRUST"
     elif score >= 0.60:
-        badge = "🟡 MODERATE TRUST"
+        badge = "MODERATE TRUST"
     else:
-        badge = "🔴 LOW TRUST / CONTRADICTED"
+        badge = "LOW TRUST / CONTRADICTED"
 
     lines = [
         "# VeriRAG Verification Report",
         "",
-        f"**Status**: {badge} (Trust Score: `{score:.2%}`)",
+        f"**Status**: [{badge}] (Trust Score: `{score:.2%}`)",
         f"**Claim Summary**: {c_counts.get('SUPPORTED', 0)} Supported | {c_counts.get('CONTRADICTED', 0)} Contradicted | {c_counts.get('UNSUPPORTED', 0)} Unsupported (Total: {total})",
         "",
         "---",
@@ -145,14 +145,13 @@ def format_verified_report(
     for idx, c in enumerate(claim_verdicts, 1):
         v = c["verdict"]
         conf = c.get("confidence", 0.0)
-        icon = "✅" if v == "SUPPORTED" else ("❌" if v == "CONTRADICTED" else "⚠️")
-        lines.append(f"{idx}. {icon} **[{v}]** `{c['claim_text']}` *(Confidence: {conf:.2f})*")
+        lines.append(f"{idx}. **[{v}]** `{c['claim_text']}` *(Confidence: {conf:.2f})*")
         
         # Add flags if present
         flags = c.get("legal_flags", [])
         if flags:
             for f in flags:
-                lines.append(f"   - 🚩 *{f.get('type')}*: {f.get('description')}")
+                lines.append(f"   - [FLAG: {f.get('type')}]: {f.get('description')}")
 
         best_ev = c.get("best_evidence")
         if best_ev and best_ev.get("chunk_id"):
