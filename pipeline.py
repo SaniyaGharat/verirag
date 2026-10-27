@@ -73,7 +73,8 @@ class VeriRAG:
         text: str,
         query: str = "",
         top_k: int = 5,
-        decompose_method: str = "auto"
+        decompose_method: str = "auto",
+        source_doc_id: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Executes end-to-end verification of legal text.
@@ -92,11 +93,18 @@ class VeriRAG:
         for c in claims:
             c_text = c["claim_text"]
             t_ret = time.time()
-            passages = self.retriever.search(c_text, top_k=top_k)
+            if source_doc_id is None:
+                passages = self.retriever.search(c_text, top_k=top_k)
+            else:
+                passages = self.retriever.search(
+                    c_text, top_k=top_k, source_doc_id=source_doc_id
+                )
             dt_ret = (time.time() - t_ret) * 1000
 
             t_ver = time.time()
-            verdict_res = self.verifier.verify_claim(c_text, passages)
+            verdict_res = self.verifier.verify_claim(
+                c_text, passages, source_doc_id=source_doc_id
+            )
             dt_ver = (time.time() - t_ver) * 1000
 
             verdict_res["claim_index"] = c["claim_index"]
@@ -137,6 +145,7 @@ def main():
     parser.add_argument("text", type=str, nargs="?", default=None, help="Input legal text to verify")
     parser.add_argument("--query", type=str, default="", help="Optional legal query context")
     parser.add_argument("--top-k", type=int, default=5, help="Number of retrieved passages per claim")
+    parser.add_argument("--source-doc-id", type=str, default=None, help="Optional judgment ID to restrict evidence to one docket")
     parser.add_argument("--decompose-method", choices=["auto", "llm", "rule_based"], default="auto")
     parser.add_argument("--config", type=str, default=str(DEFAULT_CONFIG_PATH))
     args = parser.parse_args()
@@ -153,7 +162,8 @@ def main():
         text=sample_text,
         query=args.query,
         top_k=args.top_k,
-        decompose_method=args.decompose_method
+        decompose_method=args.decompose_method,
+        source_doc_id=args.source_doc_id
     )
 
     print("\n" + "=" * 80)

@@ -31,7 +31,7 @@ if sys.platform == "win32":
         pass
 
 from pipeline import VeriRAG
-from retriever.search import Retriever
+from retriever.search import Retriever, reciprocal_rank_fusion
 
 app = Flask(__name__, static_folder="ui", static_url_path="")
 CORS(app)
@@ -79,6 +79,7 @@ def verify_text():
     query = data.get("query", "").strip()
     top_k = int(data.get("top_k", 5))
     decompose_method = data.get("decompose_method", "rule_based")
+    source_doc_id = data.get("source_doc_id")
 
     if not text:
         return jsonify({"error": "Field 'text' is required"}), 400
@@ -90,7 +91,8 @@ def verify_text():
             text=text,
             query=query,
             top_k=top_k,
-            decompose_method=decompose_method
+            decompose_method=decompose_method,
+            source_doc_id=source_doc_id
         )
         result["execution_time_sec"] = round(time.time() - t0, 3)
         return jsonify(result)
@@ -111,7 +113,17 @@ def search_corpus():
     engine = get_engine()
     t0 = time.time()
     try:
-        results = engine.retriever.search(query=query, top_k=top_k, mode=mode)
+        if mode == "dense":
+            results = engine.retriever.search(query=query, top_k=top_k)
+        elif mode == "sparse":
+            results = engine.retriever.bm25_search(query=query, top_k=top_k)
+        elif mode == "hybrid":
+            dense_results = engine.retriever.search(query=query, top_k=top_k)
+            sparse_results = engine.retriever.bm25_search(query=query, top_k=top_k)
+            results = reciprocal_rank_fusion(dense_results, sparse_results, top_k)
+        else:
+            return jsonify({"error": "Field 'mode' must be dense, sparse, or hybrid"}), 400
+
         return jsonify({
             "query": query,
             "mode": mode,

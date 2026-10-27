@@ -48,18 +48,35 @@ class VerificationPipeline:
     def verify_claim(
         self,
         claim_text: str,
-        retrieved_passages: List[Dict[str, Any]]
+        retrieved_passages: List[Dict[str, Any]],
+        source_doc_id: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Verifies a single atomic claim against a list of retrieved evidence passages.
         """
+        if source_doc_id is None and retrieved_passages:
+            # Search results are ranked globally across the corpus. In the
+            # absence of an explicit docket, use the top-ranked result's
+            # judgment as the candidate source and never combine verdicts from
+            # other judgments.
+            source_doc_id = next(
+                (p.get("doc_id") for p in retrieved_passages if p.get("doc_id") is not None),
+                None
+            )
+
+        if source_doc_id is not None:
+            retrieved_passages = [
+                p for p in retrieved_passages if str(p.get("doc_id")) == str(source_doc_id)
+            ]
+
         if not retrieved_passages:
             return {
                 "claim_text": claim_text,
                 "verdict": "UNSUPPORTED",
                 "confidence": 1.0,
-                "reason": "No evidence passages retrieved",
+                "reason": "No evidence passages retrieved for the requested source document",
                 "best_evidence": None,
+                "source_doc_id": source_doc_id,
                 "legal_flags": [],
                 "evaluations": []
             }
@@ -134,6 +151,7 @@ class VerificationPipeline:
             "claim_text": claim_text,
             "verdict": final_verdict,
             "confidence": float(final_conf),
+            "source_doc_id": source_doc_id,
             "best_evidence": {
                 "chunk_id": best_evidence.get("chunk_id") if best_evidence else None,
                 "doc_id": best_evidence.get("doc_id") if best_evidence else None,

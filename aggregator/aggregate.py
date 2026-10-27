@@ -146,6 +146,10 @@ def format_verified_report(
         v = c["verdict"]
         conf = c.get("confidence", 0.0)
         lines.append(f"{idx}. **[{v}]** `{c['claim_text']}` *(Confidence: {conf:.2f})*")
+
+        reason = c.get("reason")
+        if reason:
+            lines.append(f"   - **Reason**: {reason}")
         
         # Add flags if present
         flags = c.get("legal_flags", [])

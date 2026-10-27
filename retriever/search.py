@@ -41,6 +41,24 @@ def tokenize_for_bm25(text: str) -> list[str]:
     return [w.lower() for w in text.split() if w.isalnum() or len(w) > 1]
 
 
+def reciprocal_rank_fusion(dense_results, sparse_results, top_k, rank_constant=60):
+    """Combine dense and lexical rankings without mixing incomparable scores."""
+    fused = {}
+    for results in (dense_results, sparse_results):
+        for item in results:
+            chunk_id = item.get("chunk_id")
+            if not chunk_id:
+                continue
+            entry = fused.setdefault(chunk_id, {**item, "score": 0.0})
+            entry["score"] += 1.0 / (rank_constant + int(item["rank"]))
+
+    ranked = sorted(fused.values(), key=lambda item: item["score"], reverse=True)[:top_k]
+    for rank, item in enumerate(ranked, 1):
+        item["rank"] = rank
+        item["method"] = "hybrid_rrf"
+    return ranked
+
+
 class Retriever:
     """Unified retrieval engine supporting both dense (FAISS) and sparse (BM25) search."""
 
@@ -69,6 +87,10 @@ class Retriever:
         if not self.metadata_path.exists():
             raise FileNotFoundError(f"Metadata file not found: {self.metadata_path}. Build index first.")
         self.df_metadata = pd.read_parquet(self.metadata_path)
+        self.metadata_by_chunk_id = {
+            str(row["chunk_id"]): row
+            for _, row in self.df_metadata.iterrows()
+        }
         
         # 2. Load FAISS index
         if not self.faiss_index_path.exists():
@@ -86,8 +108,17 @@ class Retriever:
                 bm25_data = pickle.load(f)
                 self.bm25 = bm25_data["bm25"]
                 self.bm25_chunk_ids = bm25_data["chunk_ids"]
+                if len(self.bm25_chunk_ids) != len(self.bm25.doc_len):
+                    raise ValueError(
+                        "BM25 index and stored chunk ID list have different lengths; rebuild the index."
+                    )
 
-    def search(self, query: str, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
+    def search(
+        self,
+        query: str,
+        top_k: Optional[int] = None,
+        source_doc_id: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
         """
         Dense semantic search using FAISS Flat-IP on normalized embeddings.
         Returns top-k passages with scores, chunk IDs, and text spans.
@@ -105,16 +136,20 @@ class Retriever:
         )
         q_emb = np.ascontiguousarray(q_emb, dtype=np.float32)
 
-        # Search FAISS
-        scores, indices = self.faiss_index.search(q_emb, k)
+        # If the caller identifies the judgment, search the complete index before
+        # filtering so a globally low-ranked chunk from that docket is not lost.
+        search_k = self.faiss_index.ntotal if source_doc_id is not None else k
+        scores, indices = self.faiss_index.search(q_emb, search_k)
         
         results = []
         for rank, (idx, score) in enumerate(zip(indices[0], scores[0]), 1):
             if idx == -1:
                 continue
             row = self.df_metadata.iloc[idx]
+            if source_doc_id is not None and str(row["doc_id"]) != str(source_doc_id):
+                continue
             results.append({
-                "rank": rank,
+                "rank": len(results) + 1,
                 "chunk_id": str(row["chunk_id"]),
                 "doc_id": str(row["doc_id"]),
                 "chunk_index": int(row["chunk_index"]) if "chunk_index" in row else 0,
@@ -125,6 +160,8 @@ class Retriever:
                 "word_count": int(row["word_count"]) if "word_count" in row else len(str(row["text"]).split()),
                 "method": "dense_faiss"
             })
+            if len(results) >= k:
+                break
         return results
 
     def bm25_search(self, query: str, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
@@ -147,10 +184,16 @@ class Retriever:
         results = []
         for rank, idx in enumerate(top_indices, 1):
             score = float(scores[idx])
-            row = self.df_metadata.iloc[idx]
+            # The BM25 corpus carries its own chunk ordering. Resolve its IDs
+            # through metadata instead of assuming both files have stayed in
+            # the same row order after regeneration or replacement.
+            chunk_id = str(self.bm25_chunk_ids[idx])
+            row = self.metadata_by_chunk_id.get(chunk_id)
+            if row is None:
+                continue
             results.append({
                 "rank": rank,
-                "chunk_id": str(row["chunk_id"]),
+                "chunk_id": chunk_id,
                 "doc_id": str(row["doc_id"]),
                 "chunk_index": int(row["chunk_index"]) if "chunk_index" in row else 0,
                 "score": score,
