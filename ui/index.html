@@ -173,25 +173,8 @@
           <!-- Dynamic Results Container (hidden initially) -->
           <div id="verified-content" style="display: none; display: flex; flex-direction: column; gap: 1.25rem;">
             
-            <!-- Trust Score Banner -->
-            <div class="trust-banner">
-              <div class="trust-gauge-group">
-                <div class="gauge-svg-container">
-                  <svg class="gauge-svg" viewBox="0 0 36 36">
-                    <path class="gauge-track" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="gauge-fill" id="trust-gauge-fill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  </svg>
-                  <div class="gauge-text" id="trust-percentage">0%</div>
-                </div>
-                <div class="trust-details">
-                  <h3 id="trust-badge-label">
-                    <span class="badge-tag" id="trust-status-badge">EVALUATING</span>
-                  </h3>
-                  <p id="trust-summary-text">Calibrated trust score based on atomic claim verification.</p>
-                </div>
-              </div>
-
-              <!-- Stat Metrics -->
+            <!-- Claim Verification Metrics -->
+            <div class="verification-summary">
               <div class="stat-pills">
                 <div class="stat-metric-card">
                   <div class="num" id="stat-sup" style="color: var(--verdict-sup-text);">0</div>

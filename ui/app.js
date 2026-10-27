@@ -121,35 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("verified-content");
     container.style.display = "flex";
 
-    const score = res.trust_score || 0;
-    const pct = Math.round(score * 100);
-
-    // Update Radial Trust Gauge
-    const gaugeFill = document.getElementById("trust-gauge-fill");
-    const gaugeText = document.getElementById("trust-percentage");
-    gaugeFill.setAttribute("stroke-dasharray", `${pct}, 100`);
-    gaugeText.textContent = `${pct}%`;
-
-    // Dynamic Gauge Palette
-    let strokeColor = "#f43f5e"; // Crimson
-    let statusClass = "contradicted";
-    let statusLabel = "LOW TRUST / CONTRADICTED";
-
-    if (score >= 0.85) {
-      strokeColor = "#10b981"; // Emerald
-      statusClass = "supported";
-      statusLabel = "HIGH TRUST";
-    } else if (score >= 0.60) {
-      strokeColor = "#f59e0b"; // Amber
-      statusClass = "unsupported";
-      statusLabel = "MODERATE TRUST";
-    }
-
-    gaugeFill.style.stroke = strokeColor;
-    const badgeEl = document.getElementById("trust-status-badge");
-    badgeEl.className = `badge-tag ${statusClass}`;
-    badgeEl.textContent = statusLabel;
-
     // Stat metrics
     const counts = res.trust_summary ? res.trust_summary.counts : {};
     document.getElementById("stat-sup").textContent = counts["SUPPORTED"] || 0;

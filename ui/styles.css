@@ -477,8 +477,8 @@ body {
   margin: 0 auto;
 }
 
-/* Trust Score Header Banner */
-.trust-banner {
+/* Claim Verification Metrics Banner */
+.verification-summary {
   background: linear-gradient(135deg, rgba(17, 26, 46, 0.95), rgba(22, 34, 61, 0.95));
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
@@ -487,63 +487,6 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-}
-
-.trust-gauge-group {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.gauge-svg-container {
-  position: relative;
-  width: 84px;
-  height: 84px;
-}
-
-.gauge-svg {
-  transform: rotate(-90deg);
-  width: 100%;
-  height: 100%;
-}
-
-.gauge-track {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 8;
-}
-
-.gauge-fill {
-  fill: none;
-  stroke-width: 8;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 1s ease, stroke 0.3s ease;
-}
-
-.gauge-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.trust-details h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.trust-details p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
 }
 
 .stat-pills {
